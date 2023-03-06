@@ -23,36 +23,6 @@ Client side: React
 ##### Here are the relevant endpoints (routes) that we will be using:
 
 
-SERVER ROUTES
-
---- Base URL /Products ---
-HTTP METHOD  | Route                              | Description                  | JSON
--------------| -----------------------------------| ---------------------------- | ----- |
-GET          | `/getAllProducts`                  | All Products list             |
-POST         | `/NewProduct`                      | New product form render      |
-GET          | `/:id`                             | Get Poduct Details by Id     |
-PUT          | `/:id/edit`                        | Edit Products by Id          |
-DELETE       | `/:id/delete`                      | Delete Products by Id        |
---- Base URL /Recipes ---
-HTTP METHOD  | Route                              | Description                  | JSON
--------------| -----------------------------------| ---------------------------- | ----- |
-GET          | `/getAllRecipes`                   | All Recipes list             |
-POST         | `/NewRecipe`                       | New Recipe form render       |
-GET          | `/:id`                             | Get Recipe Details by Id     |
-PUT          | `/:id/edit`                        | Edit Products by Id          |
-DELETE       | `/:id/delete`                      | Delete Products by Id        |
---- Base URL /Auth ---
-HTTP METHOD  | Route                              | Description                     | JSON
--------------| -----------------------------------| ----------------------------    | ----- |
-POST         | `/signup`                          | Signup user                     |
-POST         | `/login`                           | Login user                      |
-GET          | `/verify`                          | Verify Auth token               |
-GET          | `/:id`                             | Get user Details by Id          |
-PUT          | `/:id/edit`                        | Edit profile by Id (user/admin) |
-DELETE       | `/:id/delete`                      | Delete user by Id  (admin)      |
-GET          | `/:id/role`                        | Edit user roles (admin)         |
-
-
 CLIENT ROUTES
 
 URL                       | Description                        | Protected
@@ -69,11 +39,11 @@ URL                       | Description                        | Protected
 `/recipes/:id`            | Details on Specific Recipe         |           |
 `/recipes/create`         | Create a new Recipe                |Yes        |
 `/recipes/edit/:id`       | Edit a Specific Product            |Yes        |
-`/start-session`          | Log In                             |           | // Ver el Lunes
-`/users/signUp`           | Create New User                    |           |
-`/users/users-list`       | List of all Users                  |Yes        |
-`/user/profile/:id`       | Profile of Specific User           |           |
-`/user/profile/edit/:id`  | Edit a Specific User               |Yes        |
+`/login        `          | Log In                             |           | // Ver el Lunes
+`/signUp`                 | Create New User                    |           |
+`/users-list`             | List of all Users                  |Yes        |
+`/delete/:id`             | Profile of Specific User           |           |
+`/edit/:id`               | Edit a Specific User               |Yes        |
 
 
 
