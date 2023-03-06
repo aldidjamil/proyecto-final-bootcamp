@@ -69,7 +69,8 @@ URL                       | Description                        | Protected
 `/recipes/:id`            | Details on Specific Recipe         |           |
 `/recipes/create`         | Create a new Recipe                |Yes        |
 `/recipes/edit/:id`       | Edit a Specific Product            |Yes        |
-`/users/create`           | Create New User                    |           |
+`/start-session`          | Log In                             |           | // Ver el Lunes
+`/users/signUp`           | Create New User                    |           |
 `/users/users-list`       | List of all Users                  |Yes        |
 `/user/profile/:id`       | Profile of Specific User           |           |
 `/user/profile/edit/:id`  | Edit a Specific User               |Yes        |
