@@ -1,10 +1,13 @@
+import './Navigation.css'
+import { useContext } from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../contexts/auth.context'
 import logo from './../assets/images/logo.png'
-import './Navigation.css'
 
 const Navigation = () => {
 
+    const { user, logout } = useContext(AuthContext)
     return (
         <Navbar variant='dark' expand="md" className='navigation mb-4'>
             <Container>
@@ -31,15 +34,26 @@ const Navigation = () => {
                         <Link to="/Events">
                             <Nav.Link as="span">Eventos</Nav.Link>
                         </Link>
-
-                        <Nav.Link as="span" onClick='{logout}'>Log Out</Nav.Link>
-                        <Link to="/login">
-                            <Nav.Link as="span">Log In</Nav.Link>
-                        </Link>
-                        <Link to="/signup">
-                            <Nav.Link as="span">Sign In</Nav.Link>
-                        </Link>
+                        {user
+                            ?
+                            <>
+                                <Nav.Link as="span" onClick={logout}>Log Out</Nav.Link>
+                                <Link to="/appUsers">
+                                    <Nav.Link as="span">Usuarios</Nav.Link>
+                                </Link>
+                            </>
+                            :
+                            <>
+                                <Link to="/iniciar-sesion">
+                                    <Nav.Link as="span">Log In</Nav.Link>
+                                </Link>
+                                <Link to="/crearUsuario">
+                                    <Nav.Link as="span">Sig In</Nav.Link>
+                                </Link>
+                            </>
+                        }
                     </Nav>
+                    {user && <Navbar.Text>Bienvenid@, {user.username} | </Navbar.Text>}
                 </Navbar.Collapse >
             </Container >
         </Navbar >

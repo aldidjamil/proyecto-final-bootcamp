@@ -5,6 +5,9 @@ import Events from "../pages/Events/Events"
 import Products from "../pages/Products/Products"
 import Recipes from "../pages/Recipes/Recipes"
 import AboutTempeh from "../pages/AboutTempeh/AboutTempeh"
+import SignupPage from "../pages/SignUpPage/SignUpPage"
+import LoginPage from "../pages/LoginPage/LoginPage"
+import UserListPage from "../pages/UserListPage/UserListPage"
 
 
 const AppRoutes = () => {
@@ -17,8 +20,9 @@ const AppRoutes = () => {
             <Route path="/Events" element={<Events />} />
             <Route path="/Products" element={<Products />} />
             <Route path="/Recipes" element={<Recipes />} />
-            {/* <Route path="/SignUp" element={<SignupPage />} />
-            <Route path="/Login" element={<LoginPage />} /> */}
+            <Route path="/appUsers" element={<UserListPage />} />
+            <Route path="/crearUsuario" element={<SignupPage />} />
+            <Route path="/iniciar-sesion" element={<LoginPage />} />
             <Route path="*" element={<p>404</p>} />
         </Routes>
     )
