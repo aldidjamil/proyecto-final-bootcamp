@@ -11,7 +11,7 @@ const Navigation = () => {
                 <Navbar.Brand href="#home">BeanBased</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Nav className="navcontain ml-auto">
-                    <Link to="/">
+                    <Link to="AboutTempeh">
                         <Nav.Link as="span">¿Que es el TEMPEH?</Nav.Link>
                     </Link>
                     <Link to="/products">
@@ -25,18 +25,18 @@ const Navigation = () => {
 
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="navcontain mr-auto">
-                        <Link to="/aboutus">
+                        <Link to="/AboutUs">
                             <Nav.Link as="span">Conocenos</Nav.Link>
                         </Link>
-                        <Link to="/events">
+                        <Link to="/Events">
                             <Nav.Link as="span">Eventos</Nav.Link>
                         </Link>
 
                         <Nav.Link as="span" onClick='{logout}'>Log Out</Nav.Link>
-                        <Link to="/start-session">
+                        <Link to="/login">
                             <Nav.Link as="span">Log In</Nav.Link>
                         </Link>
-                        <Link to="/signUp">
+                        <Link to="/signup">
                             <Nav.Link as="span">Sign In</Nav.Link>
                         </Link>
                     </Nav>
