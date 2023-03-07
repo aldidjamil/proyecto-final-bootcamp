@@ -1,17 +1,17 @@
-import ProductCard from "../ProductCard/ProductCard"
+import RecipeCard from "../RecipeCard/RecipeCard"
 import { Col, Row } from "react-bootstrap"
 
 
-const ProductsList = ({ products }) => {
-    console.log(products)
+const RecipesList = ({ recipes }) => {
+    console.log(recipes)
     return (
         <Row>
             {
-                products.map(elm => {
+                recipes.map(elm => {
                     return (
 
                         <Col md={{ span: 3 }} key={elm._id}>
-                            <ProductCard {...elm} />
+                            <RecipeCard {...elm} />
                         </Col>
                     )
                 })
@@ -20,6 +20,6 @@ const ProductsList = ({ products }) => {
     )
 }
 
-export default ProductsList
+export default RecipesList
 
 
