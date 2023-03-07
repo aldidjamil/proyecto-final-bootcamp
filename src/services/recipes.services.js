@@ -33,6 +33,6 @@ class RecipeService {
     }
 }
 
-const productsService = new ProductService()
+const recipesService = new RecipeService()
 
-export default productsService
+export default recipesService

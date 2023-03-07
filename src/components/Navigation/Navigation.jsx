@@ -23,7 +23,9 @@ const Navigation = () => {
                     <Link to="/recipes">
                         <Nav.Link as="span">Recetas</Nav.Link>
                     </Link>
-                    <img src={logo} className="logo"></img>
+                    <Link to="/">
+                        <img src={logo} className="logo"></img>
+                    </Link>
                 </Nav >
 
                 <Navbar.Collapse id="basic-navbar-nav">

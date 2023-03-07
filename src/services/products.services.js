@@ -9,7 +9,7 @@ class ProductService {
     }
 
     getProducts() {
-        return this.api.get('/getAllProducts')
+        return this.api.get('/getAllProducts') //DONE
     }
 
     getOneProduct(Product_id) {
@@ -17,7 +17,7 @@ class ProductService {
     }
 
     saveProduct(productData) {
-        return this.api.post('/saveProduct', productData)
+        return this.api.post('/addProduct', productData)  //DONE
     }
 
     editProduct(Product_id) {
