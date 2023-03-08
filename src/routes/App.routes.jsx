@@ -11,6 +11,7 @@ import SingleProductCard from "../components/SingleProductCard/SingleProductCard
 import UserListPage from "../pages/UserListPage/UserListPage"
 import LoginPage from "../pages/LoginPage/LoginPage"
 import SignupPage from "../pages/SignUpPage/SignUpPage"
+import DeleteProduct from "../components/DeleteProduct/DeleteProduct"
 
 const AppRoutes = () => {
     return (
@@ -22,7 +23,8 @@ const AppRoutes = () => {
             <Route path="/Products" element={<Products />} />
             <Route path="/Recipes" element={<Recipes />} />
             <Route path="/NewProductPage" element={<NewProductPage />} />
-            <Route path="/products/edit/:id" element={<EditProductForm />} />
+            <Route path="/products/edit/:product_id" element={<EditProductForm />} />
+            <Route path="/products/delete/:product_id" element={<DeleteProduct />} />
             <Route path="/products/details/:id" element={<SingleProductCard />} />
             <Route path="/appUsers" element={<UserListPage />} />
             <Route path="/crearUsuario" element={<SignupPage />} />

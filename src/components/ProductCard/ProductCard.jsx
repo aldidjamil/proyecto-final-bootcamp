@@ -1,8 +1,24 @@
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
+import productsService from "../../services/products.services"
 
 
 
-const ProductCard = ({ title, description, imageUrl, format, stock, _id }) => {
+
+const ProductCard = ({ title, description, imageUrl, format, _id, setProducts }) => {
+
+
+    const deleteProduct = (product_id) => {
+        productsService
+            .deleteProduct(product_id)
+            .then(() => {
+                return productsService.getProducts()
+
+            })
+            .then(({ data }) => setProducts(data))
+            .catch(err => console.log(err))
+    }
+
     console.log(description)
     return (
         <>
@@ -17,6 +33,7 @@ const ProductCard = ({ title, description, imageUrl, format, stock, _id }) => {
             <Link to={`/products/edit/${_id}`} >
                 <button>Editar</button>
             </Link>
+            <button onClick={() => deleteProduct(_id)}>Eliminar</button>
         </>
     )
 }

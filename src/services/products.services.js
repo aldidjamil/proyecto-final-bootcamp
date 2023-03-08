@@ -6,26 +6,37 @@ class ProductService {
         this.api = axios.create({
             baseURL: `${process.env.REACT_APP_API_URL}/products`
         })
+        this.api.interceptors.request.use((config) => {
+
+            const storedToken = localStorage.getItem("authToken");
+
+            if (storedToken) {
+                config.headers = { Authorization: `Bearer ${storedToken}` }
+            }
+
+            return config
+        })
+
     }
 
     getProducts() {
         return this.api.get('/getAllProducts') //DONE
     }
 
-    getOneProduct(Product_id) {
-        return this.api.get(`/getOneProduct/${Product_id}`)
+    getOneProduct(Product_id) { //DONE
+        return this.api.get(`/${Product_id}`)
     }
 
     saveProduct(productData) {
         return this.api.post('/addProduct', productData)  //DONE
     }
 
-    editProduct(Product_id) {
-        return this.api.put(`/edit/${Product_id}`)
+    editProduct(Product_id, data) { //DONE
+        return this.api.put(`/edit/${Product_id}`, data)
     }
 
-    updateStock(Product_id) {
-        return this.api.put(`/updateStock/${Product_id}`)
+    updateStock(Product_id, stock) {
+        return this.api.put(`/updateStock/${Product_id}`, stock)
     }
 
     deleteProduct(Product_id) {
