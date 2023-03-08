@@ -8,20 +8,7 @@ import { Container } from 'react-bootstrap'
 
 const Products = () => {
 
-    const [products, setProducts] = useState([])
 
-    useEffect(() => {
-        getProducts()
-    }, [])
-
-    const getProducts = () => {
-        productsService
-            .getProducts()
-            .then(({ data }) => {
-                setProducts(data)
-            })
-            .catch(err => console.log(err))
-    }
 
     return (
 
@@ -35,7 +22,7 @@ const Products = () => {
                             <button>Crear nuevo Producto</button>
                         </Link>
                         <hr />
-                        <ProductsList products={products} />
+                        <ProductsList />
                     </>
                 }
             </Container>

@@ -1,29 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 import productsServices from './../../services/products.services'
+import { useNavigate } from "react-router-dom";
 
-const EditProductForm = ({ fireFinalActions }) => {
+const EditProductForm = () => {
 
     const [productData, setProductData] = useState({
         title: '',
         description: '',
-        format: 0,
-        stock: 0,
+        format: "",
+        stock: "",
         imageUrl: ''
     })
+
+    useEffect(() => {
+        console.log(productData)
+    }, [productData])
+
+    const navigate = useNavigate()
+
+    const { product_id } = useParams()
 
     const handleInputChange = e => {
         const { value, name } = e.target
         setProductData({ ...productData, [name]: value })
     }
 
+    useEffect(() => {
+        getOneProduct(product_id)
+    }, [])
+
+    const getOneProduct = (product_id) => {
+        productsServices
+            .getOneProduct(product_id)
+            .then(({ data }) => setProductData(data))
+            .catch(err => (console.log(err)))
+    }
+
     const handleProductSubmit = e => {
         e.preventDefault()
 
         productsServices
-            .editProduct(productData)
+            .editProduct(product_id, productData)
             .then(({ data }) => {
-                fireFinalActions()
+                navigate("/")
             })
             .catch(err => console.log(err))
     }
@@ -42,7 +63,7 @@ const EditProductForm = ({ fireFinalActions }) => {
 
                 <Form.Group as={Col} controlId="imageUrl">
                     <Form.Label>Imagen</Form.Label>
-                    <Form.Control type="file" name="imageUrl" value={productData.imageUrl} onChange={handleInputChange} />
+                    <Form.Control type="file" name="imageUrl" onChange={handleInputChange} />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="format">
