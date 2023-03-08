@@ -8,7 +8,7 @@ const UserListPage = () => {
 
     const [users, setUsers] = useState([])
 
-    // const { user } = useContext(AuthContext)
+
 
     useEffect(() => {
         loadUsers()
@@ -20,9 +20,7 @@ const UserListPage = () => {
             .catch(err => console.los(err))
     }
 
-    // const fireFinalActions = () => {
-    //     loadUsers()
-    // }
+
     return (
         <>
             <Container>

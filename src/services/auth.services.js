@@ -7,9 +7,10 @@ class AuthService {
             baseURL: `${process.env.REACT_APP_API_URL}/auth`
         })
     }
-    getAllUsers(userData) {
+    getAllUsers(userData) { //DONE
         return this.api.get('/getAllUsers', userData)
     }
+
     signup(userData) { //DONE
         return this.api.post('/signup', userData)
     }
@@ -28,6 +29,10 @@ class AuthService {
 
     edit(userData) {
         return this.api.put('/edit/:_id', userData)
+    }
+
+    getOneUser(user_id) {
+        return this.api.get('/:user_id', user_id)
     }
 
 }

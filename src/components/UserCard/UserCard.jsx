@@ -11,6 +11,9 @@ const UserCard = ({ email, username, password, _id }) => {
                 <Card.Body>
                     <Card.Text>{email}</Card.Text>
                     <Card.Text>{username}</Card.Text>
+                    <Link to={`/user/edit/${_id}`} >
+                        <button>Editar</button>
+                    </Link>
                 </Card.Body>
             </Card>
         </Link>
