@@ -10,28 +10,19 @@ const UserListPage = () => {
 
 
 
-    useEffect(() => {
-        loadUsers()
-    }, [])
-    const loadUsers = () => {
-        authService
-            .getAllUsers()
-            .then(({ data }) => { setUsers(data) })
-            .catch(err => console.los(err))
-    }
 
 
     return (
-        <>
+        <div>
             <Container>
 
                 <>
                     <h1>Listado de Usuarios</h1>
-                    <UserList users={users} />
+                    <UserList users={users} setUsers={setUsers} />
                 </>
 
             </Container>
-        </>
+        </div>
     )
 }
 
