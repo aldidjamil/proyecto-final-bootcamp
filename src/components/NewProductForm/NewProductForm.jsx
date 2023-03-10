@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
+import uploadServices from "../../services/upload.services";
+import FormError from "../FormError/FormError";
 import productsServices from './../../services/products.services'
+
 
 const NewProductForm = ({ fireFinalActions }) => {
 
@@ -9,8 +12,12 @@ const NewProductForm = ({ fireFinalActions }) => {
         description: '',
         format: 0,
         stock: 0,
-        imageUrl: ''
+        imageUrl: '',
+        price: ''
     })
+
+    const [loadingImage, setLoadingImage] = useState(false)
+    const [errors, setErrors] = useState([])
 
     const handleInputChange = e => {
         const { value, name } = e.target
@@ -22,10 +29,27 @@ const NewProductForm = ({ fireFinalActions }) => {
 
         productsServices
             .saveProduct(productData)
-            .then(({ data }) => {
+            .then(() => {
                 fireFinalActions()
             })
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
+    }
+
+    const handleFileUpload = e => {
+
+        setLoadingImage(true)
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+        uploadServices
+            .uploadimage(formData)
+            .then(res => {
+                setProductData({ ...productData, imageUrl: res.data.cloudinary_url })
+                setLoadingImage(false)
+            })
+            .catch(err => {
+                console.log(err)
+                setLoadingImage(false)
+            })
     }
 
     return (
@@ -42,7 +66,7 @@ const NewProductForm = ({ fireFinalActions }) => {
 
                 <Form.Group as={Col} controlId="imageUrl">
                     <Form.Label>Imagen</Form.Label>
-                    <Form.Control type="file" name="imageUrl" value={productData.imageUrl} onChange={handleInputChange} />
+                    <Form.Control type="file" onChange={handleFileUpload} />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="format">
@@ -50,13 +74,19 @@ const NewProductForm = ({ fireFinalActions }) => {
                     <Form.Control type="text" name="format" value={productData.format} onChange={handleInputChange} />
                 </Form.Group>
             </Row>
+            <Row className="mb-3">
 
-            <Form.Group className="mb-3" controlId="stock">
-                <Form.Label>Stock</Form.Label>
-                <Form.Control type="text" name="stock" value={productData.stock} onChange={handleInputChange} />
-            </Form.Group>
-
-            <Button variant="dark" type="submit">Crear nuevo producto</Button>
+                <Form.Group className="mb-3" controlId="stock">
+                    <Form.Label>Stock</Form.Label>
+                    <Form.Control type="text" name="stock" value={productData.stock} onChange={handleInputChange} />
+                </Form.Group>
+                <Form.Group as={Col} controlId="format">
+                    <Form.Label>Precio</Form.Label>
+                    <Form.Control type="text" name="price" value={productData.price} onChange={handleInputChange} />
+                </Form.Group>
+            </Row>
+            {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}
+            <Button variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? 'Cargando imagen...' : 'Crear nuevo producto'}</Button>
         </Form>
     );
 }

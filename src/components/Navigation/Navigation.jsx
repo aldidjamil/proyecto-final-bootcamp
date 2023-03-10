@@ -39,6 +39,9 @@ const Navigation = () => {
                         {user
                             ?
                             <>
+                                <Link to="/perfil">
+                                    <Nav.Link as="span">Mi Perfil</Nav.Link>
+                                </Link>
                                 <Nav.Link as="span" onClick={logout}>Log Out</Nav.Link>
                                 <Link to="/appUsers">
                                     <Nav.Link as="span">Usuarios</Nav.Link>

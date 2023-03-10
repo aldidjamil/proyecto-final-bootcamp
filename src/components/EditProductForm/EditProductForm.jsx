@@ -3,6 +3,8 @@ import { Button, Form, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import productsServices from './../../services/products.services'
 import { useNavigate } from "react-router-dom";
+import uploadServices from "../../services/upload.services";
+
 
 const EditProductForm = () => {
 
@@ -11,9 +13,10 @@ const EditProductForm = () => {
         description: '',
         format: "",
         stock: "",
-        imageUrl: ''
+        imageUrl: '',
+        price: ''
     })
-
+    const [loadingImage, setLoadingImage] = useState(false)
     useEffect(() => {
         console.log(productData)
     }, [productData])
@@ -49,6 +52,23 @@ const EditProductForm = () => {
             .catch(err => console.log(err))
     }
 
+    const handleFileUpload = e => {
+
+        setLoadingImage(true)
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+        uploadServices
+            .uploadimage(formData)
+            .then(res => {
+                setProductData({ ...productData, imageUrl: res.data.cloudinary_url })
+                setLoadingImage(false)
+            })
+            .catch(err => {
+                console.log(err)
+                setLoadingImage(false)
+            })
+    }
+
     return (
         <Form onSubmit={handleProductSubmit}>
             <Form.Group className="mb-3" controlId="title">
@@ -63,7 +83,7 @@ const EditProductForm = () => {
 
                 <Form.Group as={Col} controlId="imageUrl">
                     <Form.Label>Imagen</Form.Label>
-                    <Form.Control type="file" name="imageUrl" onChange={handleInputChange} />
+                    <Form.Control type="file" onChange={handleFileUpload} />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="format">
@@ -71,13 +91,19 @@ const EditProductForm = () => {
                     <Form.Control type="text" name="format" value={productData.format} onChange={handleInputChange} />
                 </Form.Group>
             </Row>
+            <Row className="mb-3">
 
-            <Form.Group className="mb-3" controlId="stock">
-                <Form.Label>Stock</Form.Label>
-                <Form.Control type="text" name="stock" value={productData.stock} onChange={handleInputChange} />
-            </Form.Group>
+                <Form.Group className="mb-3" controlId="stock">
+                    <Form.Label>Stock</Form.Label>
+                    <Form.Control type="text" name="stock" value={productData.stock} onChange={handleInputChange} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="price">
+                    <Form.Label>Price</Form.Label>
+                    <Form.Control type="text" name="price" value={productData.price} onChange={handleInputChange} />
+                </Form.Group>
+            </Row>
 
-            <Button variant="dark" type="submit">Editar Producto</Button>
+            <Button variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? 'Cargando imagen...' : 'Editar Producto'}</Button>
         </Form>
     );
 }

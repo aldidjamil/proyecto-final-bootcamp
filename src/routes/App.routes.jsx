@@ -11,7 +11,10 @@ import SingleProductCard from "../components/SingleProductCard/SingleProductCard
 import UserListPage from "../pages/UserListPage/UserListPage"
 import LoginPage from "../pages/LoginPage/LoginPage"
 import SignupPage from "../pages/SignUpPage/SignUpPage"
-import UserCard from "../components/UserCard/UserCard"
+import ProfilePage from "../pages/ProfilePage/ProfilePage"
+import PrivateRoute from "./PrivateRoute"
+import UserEditForm from "../components/UserEditForm/UserEditForm"
+
 
 const AppRoutes = () => {
     return (
@@ -24,13 +27,15 @@ const AppRoutes = () => {
             <Route path="/Recipes" element={<Recipes />} />
             <Route path="/NewProductPage" element={<NewProductPage />} />
             <Route path="/products/edit/:product_id" element={<EditProductForm />} />
-            <Route path="/products/delete/:product_id" element={<DeleteProduct />} />
             <Route path="/products/details/:id" element={<SingleProductCard />} />
-            <Route path="/appUsers" element={<UserListPage />} />
-            <Route path="/crearUsuario" element={<SignupPage />} />
             <Route path="/iniciar-sesion" element={<LoginPage />} />
-            <Route path="/user/edit/:_id" element={<UserCard />} />
 
+            <Route element={<PrivateRoute />}>
+                <Route path="/perfil" element={<ProfilePage />} />
+                <Route path="/user/edit/:user_id" element={<UserEditForm />} />
+                <Route path="/crearUsuario" element={<SignupPage />} />
+                <Route path="/appUsers" element={<UserListPage />} />
+            </Route>
 
             <Route path="*" element={<p>404</p>} />
         </Routes>
