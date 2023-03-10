@@ -21,7 +21,6 @@ const ProductsList = () => {
             })
             .catch(err => console.log(err))
     }
-    console.log(products)
     return (
         <Row>
             {
