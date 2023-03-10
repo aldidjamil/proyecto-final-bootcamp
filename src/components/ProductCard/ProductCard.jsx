@@ -1,8 +1,5 @@
-import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import productsService from "../../services/products.services"
-
-
 
 
 const ProductCard = ({ title, description, imageUrl, format, _id, setProducts }) => {
@@ -13,16 +10,13 @@ const ProductCard = ({ title, description, imageUrl, format, _id, setProducts })
             .deleteProduct(product_id)
             .then(() => {
                 return productsService.getProducts()
-
             })
             .then(({ data }) => setProducts(data))
             .catch(err => console.log(err))
     }
 
-    console.log(description)
     return (
         <>
-
             <img src={imageUrl} alt={_id} />
             <h1>{title}</h1>
             <p>{description}</p>

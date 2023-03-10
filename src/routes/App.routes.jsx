@@ -7,11 +7,13 @@ import Recipes from "../pages/Recipes/Recipes"
 import AboutTempeh from "../pages/AboutTempeh/AboutTempeh"
 import NewProductPage from "../pages/NewProductPage/NewProductPage"
 import EditProductForm from "../components/EditProductForm/EditProductForm"
+import EditRecipeForm from "../components/EditRecipeForm/EditRecipeForm"
 import SingleProductCard from "../components/SingleProductCard/SingleProductCard"
 import UserListPage from "../pages/UserListPage/UserListPage"
 import LoginPage from "../pages/LoginPage/LoginPage"
 import SignupPage from "../pages/SignUpPage/SignUpPage"
 import UserCard from "../components/UserCard/UserCard"
+import NewRecipePage from "../pages/NewRecipePage/NewRecipePage"
 
 const AppRoutes = () => {
     return (
@@ -23,8 +25,9 @@ const AppRoutes = () => {
             <Route path="/Products" element={<Products />} />
             <Route path="/Recipes" element={<Recipes />} />
             <Route path="/NewProductPage" element={<NewProductPage />} />
+            <Route path="/NewRecipePage" element={<NewRecipePage />} />
             <Route path="/products/edit/:product_id" element={<EditProductForm />} />
-            <Route path="/products/delete/:product_id" element={<DeleteProduct />} />
+            <Route path="/recipes/edit/:recipe_id" element={<EditRecipeForm />} />
             <Route path="/products/details/:id" element={<SingleProductCard />} />
             <Route path="/appUsers" element={<UserListPage />} />
             <Route path="/crearUsuario" element={<SignupPage />} />

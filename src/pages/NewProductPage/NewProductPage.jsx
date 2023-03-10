@@ -7,7 +7,7 @@ const NewProductPage = () => {
     const navigate = useNavigate()
 
     const fireFinalActions = () => {
-        navigate('/')
+        navigate('/products')
     }
 
     return (

@@ -8,8 +8,6 @@ import { Container } from 'react-bootstrap'
 
 const Products = () => {
 
-
-
     return (
 
         <>
