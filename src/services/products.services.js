@@ -27,6 +27,10 @@ class ProductService {
         return this.api.get(`/${Product_id}`)
     }
 
+    getProductByOwner() {
+        return this.api.get('/owner')
+    }
+
     saveProduct(productData) {
         return this.api.post('/addProduct', productData)  //DONE
     }

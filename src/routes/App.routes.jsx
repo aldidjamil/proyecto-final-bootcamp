@@ -37,11 +37,11 @@ const AppRoutes = () => {
             <Route path="/iniciar-sesion" element={<LoginPage />} />
             <Route path="/recipes/details/:recipe_id" element={<RecipeDetails />}></Route>
             <Route path="/deliverypolicy" element={<DeliveryPolicy />} />
+            <Route path="/crearUsuario" element={<SignupPage />} />
 
             <Route element={<PrivateRoute />}>
                 <Route path="/perfil" element={<ProfilePage />} />
                 <Route path="/user/edit/:user_id" element={<UserEditForm />} />
-                <Route path="/crearUsuario" element={<SignupPage />} />
                 <Route path="/appUsers" element={<UserListPage />} />
             </Route>
 

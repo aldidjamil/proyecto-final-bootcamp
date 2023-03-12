@@ -1,15 +1,31 @@
 import './Navigation.css'
-import { useContext } from 'react'
-import { Container, Nav, Navbar } from 'react-bootstrap'
+import { useContext, useState, useEffect } from 'react'
+import { Container, Nav, Navbar, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
+import authService from '../../services/auth.services'
 import logo from './../assets/images/logo.png'
 
 const Navigation = () => {
 
     const { user, logout } = useContext(AuthContext)
+    console.log(user)
+    // const [users, setUsers] = useState([])
+    // useEffect(() => {
+    //     loadUsers()
+    // }, [])
+    // const loadUsers = () => {
+    //     authService
+    //         .getAllUsers()
+    //         .then(({ data }) => {
+    //             setUsers(data)
+    //             console.log({ setUsers })
+    //         })
+    //         .catch(err => console.los(err))
+
+    // }
     return (
-        <Navbar variant='dark' expand="md" className='navigation mb-4'>
+        <Navbar variant='dark' expand="lg" className='navigation mb-4'>
             <Container>
                 <Link to="/">
                     <img src={logo} className="logo"></img>
@@ -42,9 +58,11 @@ const Navigation = () => {
                                     <Nav.Link as="span">Mi Perfil</Nav.Link>
                                 </Link>
                                 <Nav.Link as="span" onClick={logout}>Log Out</Nav.Link>
-                                <Link to="/appUsers">
-                                    <Nav.Link as="span">Usuarios</Nav.Link>
-                                </Link>
+                                {user && user.role === 'ADMIN' &&
+                                    <Link to="/appUsers">
+                                        <Nav.Link as="span">Usuarios</Nav.Link>
+                                    </Link>
+                                }
                             </>
                             :
                             <>
