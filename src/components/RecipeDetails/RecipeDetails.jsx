@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { Container, Col, Row, Card, Button } from 'react-bootstrap'
 import { useParams } from "react-router-dom"
 import recipesService from "../../services/recipes.services"
-import Modal from 'react-bootstrap/Modal';
 import { Link } from "react-router-dom";
 
 
