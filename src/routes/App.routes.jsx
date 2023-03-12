@@ -30,7 +30,6 @@ const AppRoutes = () => {
             <Route path="/NewRecipePage" element={<NewRecipePage />} />
             <Route path="/products/edit/:product_id" element={<EditProductForm />} />
             <Route path="/recipes/edit/:recipe_id" element={<EditRecipeForm />} />
-            <Route path="/products/details/:id" element={<SingleProductCard />} />
             <Route path="/iniciar-sesion" element={<LoginPage />} />
             <Route path="/crearUsuario" element={<SignupPage />} />
 
