@@ -37,17 +37,10 @@ const Products = () => {
             <Container>
                 {
                     <>
-<<<<<<< HEAD
-                        <h1>Productos de BeanBased</h1>
-                        <Link to="/NewProductPage">
-                            <button>Crear nuevo Producto</button>
-                        </Link>
-=======
                         <h1>Listado de Products</h1>
                         {/* <Link to="/NewProductPage"> */}
                         <Button onClick={() => setShowModal(true)} variant="outline-dark">Crear nuevo Producto</Button>
                         {/* </Link> */}
->>>>>>> dc052ae682f72cdefc272f2b223656a1046e2374
                         <hr />
                         <ProductsList products={products} />
 
