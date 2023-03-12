@@ -8,11 +8,10 @@ const Recipes = () => {
     return (
 
         <>
-            <h1>My Recipes</h1>
             <Container>
                 {
                     <>
-                        <h1>Listado de Recetas</h1>
+                        <h1>Recetas de BeanBased</h1>
                         <hr />
                         <Link to={'/NewRecipePage'}>
                             <button>Crear Recetas</button>

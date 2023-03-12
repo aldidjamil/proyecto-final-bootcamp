@@ -1,0 +1,11 @@
+.form-control {
+    width: 20%;
+    align-items: left;
+    display: grid;
+    justify-content: center;
+
+}
+
+body {
+    justify-content: center;
+}

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 
-const RecipeCard = ({ title, imageUrl, _id, setRecipes, description }) => {
+const RecipeCard = ({ title, imageUrl, _id, setRecipes, steps }) => {
 
     const deleteRecipe = (recipe_id) => {
         recipesService
@@ -20,10 +20,6 @@ const RecipeCard = ({ title, imageUrl, _id, setRecipes, description }) => {
         <>
             <img src={imageUrl} alt={_id} />
             <h1>{title}</h1>
-            <ol>{description.map((elm, i) =>
-                <li key={i}>{elm.description}</li>
-            )}</ol>
-            {/* <p>{ingredients} Gramos</p> */}
             <Link to={`/recipes/details/${_id}`} >
                 <p>Ver detalles</p>
             </Link>

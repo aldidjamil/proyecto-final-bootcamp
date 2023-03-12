@@ -11,7 +11,7 @@ import './ProductCard.css'
 const ProductCard = ({ title, description, imageUrl, format, _id, owner, price, setProducts, }) => {
 
     const { user } = useContext(AuthContext)
-    const navigate = useNavigate("/products")
+    const navigate = useNavigate()
 
 
 
@@ -34,10 +34,6 @@ const ProductCard = ({ title, description, imageUrl, format, _id, owner, price, 
                 <p>{description}</p>
                 <p>{format} Gramos</p>
                 <p>{price} Euros</p>
-
-                <Link to={`/products/details/${_id}`} >
-                    <p>Ver detalles</p>
-                </Link>
                 <Link to={`/products/edit/${_id}`} >
                     <Button variant="outline-warning">Editar</Button>
                 </Link>
