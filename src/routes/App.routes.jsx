@@ -16,6 +16,9 @@ import ProfilePage from "../pages/ProfilePage/ProfilePage"
 import PrivateRoute from "./PrivateRoute"
 import UserEditForm from "../components/UserEditForm/UserEditForm"
 import NewRecipePage from "../pages/NewRecipePage/NewRecipePage"
+import RecipeDetails from "../components/RecipeDetails/RecipeDetails"
+import DeliveryPolicy from "../pages/DeliveryPolicy/DeliveryPolicy"
+
 
 const AppRoutes = () => {
     return (
@@ -31,6 +34,8 @@ const AppRoutes = () => {
             <Route path="/products/edit/:product_id" element={<EditProductForm />} />
             <Route path="/recipes/edit/:recipe_id" element={<EditRecipeForm />} />
             <Route path="/iniciar-sesion" element={<LoginPage />} />
+            <Route path="/recipes/details/:recipe_id" element={<RecipeDetails />}></Route>
+            <Route path="/deliverypolicy" element={<DeliveryPolicy />} />
             <Route path="/crearUsuario" element={<SignupPage />} />
 
             <Route element={<PrivateRoute />}>
