@@ -18,7 +18,6 @@ const EditProductForm = () => {
     })
     const [loadingImage, setLoadingImage] = useState(false)
     useEffect(() => {
-        console.log(productData)
     }, [productData])
 
     const navigate = useNavigate()

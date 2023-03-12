@@ -4,7 +4,7 @@ import authService from "../../services/auth.services";
 import './UserCard.css'
 
 
-const UserCard = ({ email, username, _id, setUsers }) => {
+const UserCard = ({ email, username, _id, role, setUsers }) => {
 
     const deleteUser = (user_id) => {
         authService
@@ -20,10 +20,11 @@ const UserCard = ({ email, username, _id, setUsers }) => {
                 <Card.Body>
                     <Card.Text>{email}</Card.Text>
                     <Card.Text>{username}</Card.Text>
+                    <Card.Text>{role}</Card.Text>
                     <Link to={`/user/edit/${_id}`} >
-                        <button>Editar</button>
+                        <Button variant="outline-warning">Editar</Button>
                     </Link>
-                    <button onClick={() => deleteUser(_id)}>Eliminar</button>
+                    <Button variant="outline-danger" onClick={() => deleteUser(_id)}>Eliminar</Button>
                 </Card.Body>
             </Card>
         </div>

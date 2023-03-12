@@ -5,22 +5,9 @@ import productsService from "../../services/products.services"
 
 
 
-const ProductsList = () => {
+const ProductsList = ({ products }) => {
 
-    const [products, setProducts] = useState([])
 
-    useEffect(() => {
-        getProducts()
-    }, [])
-
-    const getProducts = () => {
-        productsService
-            .getProducts()
-            .then(({ data }) => {
-                setProducts(data)
-            })
-            .catch(err => console.log(err))
-    }
     return (
         <Row>
             {
@@ -28,7 +15,7 @@ const ProductsList = () => {
                     return (
 
                         <Col md={{ span: 3 }} key={elm._id}>
-                            <ProductCard {...elm} setProducts={setProducts} />
+                            <ProductCard {...elm} />
                         </Col>
                     )
                 })
