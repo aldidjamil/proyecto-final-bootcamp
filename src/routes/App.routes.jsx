@@ -15,6 +15,9 @@ import SignupPage from "../pages/SignUpPage/SignUpPage"
 import ProfilePage from "../pages/ProfilePage/ProfilePage"
 import PrivateRoute from "./PrivateRoute"
 import UserEditForm from "../components/UserEditForm/UserEditForm"
+import NewRecipePage from "../pages/NewRecipePage/NewRecipePage"
+import RecipeDetails from "../components/RecipeDetails/RecipeDetails"
+import DeliveryPolicy from "../pages/DeliveryPolicy/DeliveryPolicy"
 
 
 const AppRoutes = () => {
@@ -32,6 +35,8 @@ const AppRoutes = () => {
             <Route path="/recipes/edit/:recipe_id" element={<EditRecipeForm />} />
             <Route path="/products/details/:id" element={<SingleProductCard />} />
             <Route path="/iniciar-sesion" element={<LoginPage />} />
+            <Route path="/recipes/details/:recipe_id" element={<RecipeDetails />}></Route>
+            <Route path="/deliverypolicy" element={<DeliveryPolicy />} />
 
             <Route element={<PrivateRoute />}>
                 <Route path="/perfil" element={<ProfilePage />} />

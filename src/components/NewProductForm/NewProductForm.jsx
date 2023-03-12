@@ -3,7 +3,7 @@ import { Button, Form, Row, Col } from "react-bootstrap";
 import uploadServices from "../../services/upload.services";
 import FormError from "../FormError/FormError";
 import productsServices from './../../services/products.services'
-
+import './NewProductForm.css'
 
 const NewProductForm = ({ fireFinalActions }) => {
 
@@ -64,25 +64,27 @@ const NewProductForm = ({ fireFinalActions }) => {
                     <Form.Control type="text" name="description" value={productData.description} onChange={handleInputChange} />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="imageUrl">
+                <Form.Group as={Col} controlId="imageUrl" sm={6}>
                     <Form.Label>Imagen</Form.Label>
                     <Form.Control type="file" onChange={handleFileUpload} />
                 </Form.Group>
-
                 <Form.Group as={Col} controlId="format">
                     <Form.Label>Formato</Form.Label>
-                    <Form.Control type="text" name="format" value={productData.format} onChange={handleInputChange} />
+                    <Form.Control as="select" name="format" value={productData.format} onChange={handleInputChange}>
+                        <option value="125">125 </option>
+                        <option value="200">200 </option>
+                    </Form.Control>
                 </Form.Group>
             </Row>
             <Row className="mb-3">
 
-                <Form.Group className="mb-3" controlId="stock">
+                <Form.Group className="mb-3" controlId="stock" sm={3}>
                     <Form.Label>Stock</Form.Label>
                     <Form.Control type="text" name="stock" value={productData.stock} onChange={handleInputChange} />
                 </Form.Group>
-                <Form.Group as={Col} controlId="format">
+                <Form.Group as={Col} controlId="format" sm={3}>
                     <Form.Label>Precio</Form.Label>
-                    <Form.Control type="text" name="price" value={productData.price} onChange={handleInputChange} />
+                    <Form.Control type="text" name="price" value={productData.price} onChange={handleInputChange} sm={3} />
                 </Form.Group>
             </Row>
             {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}

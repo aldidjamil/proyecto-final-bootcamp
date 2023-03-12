@@ -23,8 +23,8 @@ class RecipeService {
         return this.api.get('/getAllRecipes')
     }
 
-    getOneRecipe(Product_id) {
-        return this.api.get(`/Recipe/${Product_id}`)
+    getOneRecipe(Recipe_id) {
+        return this.api.get(`/Recipe/${Recipe_id}`)
     }
 
     saveRecipe(recipeData) {

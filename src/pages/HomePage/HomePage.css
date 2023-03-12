@@ -1,3 +1,11 @@
 .promovideo {
     border-top: 20px;
+    width: max-content;
+    height: max-content;
+}
+
+.Carousel {
+    width: 50px;
+    height: max-content;
+    background-color: red;
 }

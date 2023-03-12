@@ -47,7 +47,7 @@ const EditProductForm = () => {
         productsServices
             .editProduct(product_id, productData)
             .then(({ data }) => {
-                navigate("/")
+                navigate("/products")
             })
             .catch(err => console.log(err))
     }

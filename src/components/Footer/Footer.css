@@ -1,11 +1,33 @@
 footer {
-    background-color: #3D8055;
+    background-color: #87B594;
     color: white;
     text-align: center;
-    padding: 7px;
     position: fixed;
     width: 100%;
-    bottom: 0;
+    bottom: 20px;
     left: 0;
     font-size: .9em;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.ul,
+.li {
+    list-style: none;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.fb {
+    width: 30px;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.fotos {
+    justify-content: space-between;
 }

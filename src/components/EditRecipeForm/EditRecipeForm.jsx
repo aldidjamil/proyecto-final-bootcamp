@@ -3,15 +3,19 @@ import { Button, Form, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import recipesService from "../../services/recipes.services";
+import uploadServices from "../../services/upload.services";
 
 const EditRecipeForm = () => {
 
+    const navigate = useNavigate()
+
     const [recipeData, setRecipeData] = useState({
         title: '',
-        description: '',
-        ingredients: "",
         imageUrl: ''
     })
+    const [loadingImage, setLoadingImage] = useState(false)
+
+    const { recipe_id } = useParams()
 
     useEffect(() => {
         getOneRecipe(recipe_id)
@@ -22,43 +26,68 @@ const EditRecipeForm = () => {
             .getOneRecipe(recipe_id)
             .then(({ data }) => {
                 setRecipeData(data)
-                console.log(data.description)
-                console.log(data.ingredients)
-                descriptionData = data.description
-                ingredientsData = data.ingredients
+                console.log(data)
             })
             .catch(err => (console.log(err)))
     }
 
-    // useEffect(() => {
-    //     console.log(recipeData)
-    // }, [recipeData])
 
-    const [descriptionData, setDescriptionData] = useState('')
+    let handleChangeDescription = (i, e) => {
 
-    const [ingredientsData, setIngredientsData] = useState('')
+        let stepsCopy = JSON.parse(JSON.stringify(recipeData.steps))
+        stepsCopy[i].description = e.target.value
 
-    const navigate = useNavigate()
+        setRecipeData({ ...recipeData, steps: stepsCopy })
+    }
 
-    const { recipe_id } = useParams()
+
+    let addFormFieldsDescription = () => {
+
+        let stepsCopy = JSON.parse(JSON.stringify(recipeData.steps))
+        stepsCopy.push({ description: '' })
+
+        setRecipeData({ ...recipeData, steps: stepsCopy })
+    }
+
+    let removeDescriptionFields = (i) => {
+
+        let stepsCopy = JSON.parse(JSON.stringify(recipeData.steps))
+        stepsCopy.splice(i, 1)
+
+        setRecipeData({ ...recipeData, steps: stepsCopy })
+    }
+
 
     const handleInputChange = e => {
         const { value, name } = e.target
         setRecipeData({ ...recipeData, [name]: value })
-        if (name.startsWith('description-')) {
-            const index = parseInt(name.split('-')[1])
-            const newDescriptions = [...recipeData.description]
-            newDescriptions[index] = value
-            setDescriptionData({ ...recipeData, description: newDescriptions })
-        }
     }
 
-    let addFormFieldsDescription = () => {
-        setDescriptionData([...recipeData.description, { Paso: "" }])
+    let handleChangeIngredients = (i, e) => {
+
+        let ingredientsCopy = JSON.parse(JSON.stringify(recipeData.ingredients))
+        ingredientsCopy[i] = e.target.value
+
+        setRecipeData({ ...recipeData, ingredients: ingredientsCopy })
     }
+
     let addFormFieldsIngredients = () => {
-        setIngredientsData([...recipeData.ingredients, { Paso: "" }])
+
+        let ingredientsCopy = JSON.parse(JSON.stringify(recipeData.ingredients))
+        ingredientsCopy.push('')
+
+        setRecipeData({ ...recipeData, ingredients: ingredientsCopy })
     }
+
+    let removeIngredientsFields = (i) => {
+
+        let ingredientsCopy = JSON.parse(JSON.stringify(recipeData.ingredients))
+        ingredientsCopy.splice(i, 1)
+
+        setRecipeData({ ...recipeData, ingredients: ingredientsCopy })
+    }
+
+
 
     const handleRecipeSubmit = e => {
         e.preventDefault()
@@ -66,9 +95,26 @@ const EditRecipeForm = () => {
         recipesService
             .editRecipe(recipe_id, recipeData)
             .then(({ data }) => {
-                navigate("/")
+                navigate("/recipes")
             })
             .catch(err => console.log(err))
+    }
+
+    const handleFileUpload = e => {
+
+        setLoadingImage(true)
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+        uploadServices
+            .uploadimage(formData)
+            .then(res => {
+                setRecipeData({ ...recipeData, imageUrl: res.data.cloudinary_url })
+                setLoadingImage(false)
+            })
+            .catch(err => {
+                console.log(err)
+                setLoadingImage(false)
+            })
     }
 
     return (
@@ -79,27 +125,38 @@ const EditRecipeForm = () => {
             </Form.Group>
             <Row className="mb-3">
                 < Form.Group as={Col} controlId="description" >
-                    <Form.Label>Descripción</Form.Label>
+                    <Form.Label>Pasos</Form.Label>
                     {
-                        Array.isArray(recipeData.description) && recipeData.description.map((desc, index) => (
-                            <Form.Control type="text" name={`description-${index}`} value={desc.description} onChange={handleInputChange} key={`description-${index}`} />
-                        ))
-                    }
+                        recipeData?.steps?.map((desc, index) => {
+                            return (
+                                <div key={index}>
+                                    <Form.Control type="text" value={desc.description} onChange={e => handleChangeDescription(index, e)} />
+                                    <Button variant="dark" type="button" className="mt-2" onClick={() => removeDescriptionFields(index)}>Eliminar</Button>
+                                    <hr />
+                                </div>
+                            )
+                        })}
+
                     <Button variant="dark" className="mt-2" type="button" onClick={() => addFormFieldsDescription()}>Añadir</Button>
                 </Form.Group >
 
                 <Form.Group as={Col} controlId="imageUrl">
                     <Form.Label>Imagen</Form.Label>
-                    <Form.Control type="file" name="imageUrl" onChange={handleInputChange} />
+                    <Form.Control type="file" name="imageUrl" onChange={handleFileUpload} />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="format">
                     <Form.Label>Ingredientes</Form.Label>
                     {
-                        Array.isArray(recipeData.ingredients) && recipeData.ingredients.map((elm, index) => (
-                            <Form.Control type="text" name={`description-${index}`} value={elm.ingredients} onChange={handleInputChange} key={`ingredients-${index}`} />
-                        ))
-                    }
+                        recipeData?.ingredients?.map((ing, index) => {
+                            return (
+                                <div key={index}>
+                                    <Form.Control type="text" value={ing} onChange={e => handleChangeIngredients(index, e)} />
+                                    <Button variant="dark" type="button" className="mt-2" onClick={() => removeIngredientsFields(index)}>Eliminar</Button>
+                                    <hr />
+                                </div>
+                            )
+                        })}
                     <Button variant="dark" className="mt-2" type="button" onClick={() => addFormFieldsIngredients()}>Añadir</Button>
                 </Form.Group>
             </Row>
