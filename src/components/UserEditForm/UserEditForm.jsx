@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import { Button, Form, Row, Col } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { Button, Form, Row, Col } from "react-bootstrap"
+import { useParams } from "react-router-dom"
 import authServices from './../../services/auth.services'
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
+import FormError from "../FormError/FormError"
 
 
 const UserEditForm = () => {
@@ -12,6 +13,8 @@ const UserEditForm = () => {
         username: '',
         email: '',
     })
+
+    const [errors, setErrors] = useState([])
 
     useEffect(() => {
         console.log(userData)
@@ -45,7 +48,7 @@ const UserEditForm = () => {
             .then(({ data }) => {
                 navigate("/")
             })
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
     }
 
     return (
@@ -60,7 +63,7 @@ const UserEditForm = () => {
                     <Form.Control type="text" name="email" value={userData.email} onChange={handleInputChange} />
                 </Form.Group>
             </Row>
-
+            {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}
             <Button variant="dark" type="submit">Enviar</Button>
         </Form>
     );

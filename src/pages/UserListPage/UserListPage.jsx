@@ -8,10 +8,6 @@ const UserListPage = () => {
 
     const [users, setUsers] = useState([])
 
-
-
-
-
     return (
         <div>
             <Container>

@@ -2,6 +2,7 @@ import { useState, useContext } from "react"
 import { Form, Button } from "react-bootstrap"
 import authService from "../../services/auth.services"
 import { useNavigate } from "react-router-dom"
+import FormError from "../FormError/FormError"
 
 
 const SignUpForm = () => {
@@ -11,6 +12,8 @@ const SignUpForm = () => {
         password: '',
         username: ''
     })
+
+    const [errors, setErrors] = useState([])
 
     const navigate = useNavigate()
 
@@ -26,7 +29,7 @@ const SignUpForm = () => {
         authService
             .signup(signupData)
             .then(() => navigate('/'))
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
     }
 
     return (
@@ -48,6 +51,7 @@ const SignUpForm = () => {
             </Form.Group>
 
             <div className="d-grid">
+                {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}
                 <Button variant="dark" type="submit">Registrarme</Button>
             </div>
 
