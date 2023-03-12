@@ -44,7 +44,7 @@ const AppRoutes = () => {
             </Route>
 
             <Route path="*" element={<p>404</p>} />
-        </Routes>
+        </Routes >
     )
 }
 
