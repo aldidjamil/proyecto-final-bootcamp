@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom"
 
 const RecipeDetails = () => {
 
-    const [recipes, setRecipes] = useState({})
+    const [recipes, setRecipes] = useState({ title: "", imageUrl: "", ingredients: [], steps: [], owner: "" })
     const navigate = useNavigate()
     const { recipe_id } = useParams()
 
@@ -34,19 +34,19 @@ const RecipeDetails = () => {
                 <Card.Body>
                     <Card.Title> <img src={recipes.imageUrl} alt="" />  </Card.Title>
                     <Card.Text>
-                        {/* <p> INGREDIENTES
+                        <p> INGREDIENTES
                             {recipes.ingredients.map(elm =>
                                 <li key={elm} className="list"> {elm}</li>)
 
                             }
                         </p>
                         <p>
-                            INGREDIENTES
+                            PASOS
                             {recipes.steps.map(elm =>
                                 <li key={elm.description} className="list"> {elm.description}</li>)
 
                             }
-                        </p> */}
+                        </p>
                     </Card.Text>
                     <Link>
                         <Button onClick={() => navigate(0)} variant="dark">Volver atrás</Button>
