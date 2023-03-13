@@ -8,7 +8,6 @@ import AboutTempeh from "../pages/AboutTempeh/AboutTempeh"
 import NewProductPage from "../pages/NewProductPage/NewProductPage"
 import EditProductForm from "../components/EditProductForm/EditProductForm"
 import EditRecipeForm from "../components/EditRecipeForm/EditRecipeForm"
-import SingleProductCard from "../components/SingleProductCard/SingleProductCard"
 import UserListPage from "../pages/UserListPage/UserListPage"
 import LoginPage from "../pages/LoginPage/LoginPage"
 import SignupPage from "../pages/SignUpPage/SignUpPage"
@@ -18,6 +17,9 @@ import UserEditForm from "../components/UserEditForm/UserEditForm"
 import NewRecipePage from "../pages/NewRecipePage/NewRecipePage"
 import RecipeDetails from "../components/RecipeDetails/RecipeDetails"
 import DeliveryPolicy from "../pages/DeliveryPolicy/DeliveryPolicy"
+import CookiesPolicy from "../pages/CookiesPolicy/CookiesPolicy"
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy"
+import Legal from "../pages/Legal/Legal"
 
 
 const AppRoutes = () => {
@@ -36,6 +38,12 @@ const AppRoutes = () => {
             <Route path="/iniciar-sesion" element={<LoginPage />} />
             <Route path="/recipes/details/:recipe_id" element={<RecipeDetails />}></Route>
             <Route path="/deliverypolicy" element={<DeliveryPolicy />} />
+            <Route path="/cookiespolicy" element={<CookiesPolicy />} />
+            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+            <Route path="/legal" element={<Legal />} />
+
+
+
             <Route path="/crearUsuario" element={<SignupPage />} />
 
             <Route element={<PrivateRoute />}>
@@ -45,7 +53,7 @@ const AppRoutes = () => {
             </Route>
 
             <Route path="*" element={<p>404</p>} />
-        </Routes>
+        </Routes >
     )
 }
 

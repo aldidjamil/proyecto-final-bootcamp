@@ -37,7 +37,7 @@ const ProductCard = ({ title, description, imageUrl, format, _id, owner, price, 
                 <Link to={`/products/edit/${_id}`} >
                     <Button variant="outline-warning">Editar</Button>
                 </Link>
-                <Button variant="outline-danger" onClick={() => deleteProduct(_id)}>Eliminar</Button>
+                {/* <Button variant="outline-danger" onClick={() => deleteProduct(_id)}>Eliminar</Button> */}
                 {user._id === owner && <Button variant="outline-danger" onClick={() => deleteProduct(_id)}>Eliminar</Button>}
                 <Link to="javascript:history.back()"><Button variant="outline-dark">Volver</Button></Link>
             </Card.Body>
