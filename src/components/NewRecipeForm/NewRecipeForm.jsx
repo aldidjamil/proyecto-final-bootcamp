@@ -3,6 +3,7 @@ import { Button, Form, Row, Col } from "react-bootstrap";
 import recipesServices from '../../services/recipes.services'
 import FormError from "../FormError/FormError";
 import uploadServices from "../../services/upload.services";
+
 const NewRecipeForm = ({ fireFinalActions }) => {
 
     const [recipeData, setRecipeData] = useState({
@@ -73,7 +74,7 @@ const NewRecipeForm = ({ fireFinalActions }) => {
         setRecipeData({ ...recipeData, ingredients: ingredientsCopy })
     }
 
-    console.log(recipeData)
+
 
     const handleRecipeSubmit = e => {
         e.preventDefault()
@@ -82,7 +83,6 @@ const NewRecipeForm = ({ fireFinalActions }) => {
             .saveRecipe(recipeData)
             .then(() => {
                 fireFinalActions()
-                console.log(recipeData)
             })
             .catch(err => console.log(err))
     }
@@ -147,7 +147,7 @@ const NewRecipeForm = ({ fireFinalActions }) => {
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="imageUrl">
                             <Form.Label>Imagen</Form.Label>
-                            <Form.Control type="file" name="imageUrl" value={recipeData.imageUrl} onChange={handleFileUpload} />
+                            <Form.Control type="file" onChange={handleFileUpload} />
                         </Form.Group>
                         <Form.Group as={Col} controlId="owner">
                             <Form.Label>Receta publicada por:</Form.Label>

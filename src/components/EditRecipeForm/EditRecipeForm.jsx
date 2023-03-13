@@ -11,9 +11,16 @@ const EditRecipeForm = () => {
 
     const [recipeData, setRecipeData] = useState({
         title: '',
-        imageUrl: ''
+        imageUrl: '',
+        steps: [{
+            description: ''
+        }],
+        ingredients: [""]
     })
     const [loadingImage, setLoadingImage] = useState(false)
+
+    useEffect(() => {
+    }, [recipeData])
 
     const { recipe_id } = useParams()
 
@@ -48,6 +55,13 @@ const EditRecipeForm = () => {
 
         setRecipeData({ ...recipeData, steps: stepsCopy })
     }
+    let addFormFieldsIngredients = () => {
+
+        let ingredientsCopy = JSON.parse(JSON.stringify(recipeData.ingredients))
+        ingredientsCopy.push('')
+
+        setRecipeData({ ...recipeData, ingredients: ingredientsCopy })
+    }
 
     let removeDescriptionFields = (i) => {
 
@@ -67,14 +81,6 @@ const EditRecipeForm = () => {
 
         let ingredientsCopy = JSON.parse(JSON.stringify(recipeData.ingredients))
         ingredientsCopy[i] = e.target.value
-
-        setRecipeData({ ...recipeData, ingredients: ingredientsCopy })
-    }
-
-    let addFormFieldsIngredients = () => {
-
-        let ingredientsCopy = JSON.parse(JSON.stringify(recipeData.ingredients))
-        ingredientsCopy.push('')
 
         setRecipeData({ ...recipeData, ingredients: ingredientsCopy })
     }
@@ -160,7 +166,7 @@ const EditRecipeForm = () => {
                     <Button variant="dark" className="mt-2" type="button" onClick={() => addFormFieldsIngredients()}>Añadir</Button>
                 </Form.Group>
             </Row>
-            <Button variant="dark" type="submit">Editar Producto</Button>
+            <Button variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? 'Cargando imagen...' : 'Editar Receta'}</Button>
 
         </Form>
     );

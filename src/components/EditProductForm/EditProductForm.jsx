@@ -17,6 +17,7 @@ const EditProductForm = () => {
         price: ''
     })
     const [loadingImage, setLoadingImage] = useState(false)
+
     useEffect(() => {
     }, [productData])
 
