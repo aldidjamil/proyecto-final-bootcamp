@@ -84,7 +84,7 @@ const NewRecipeForm = ({ fireFinalActions }) => {
             .then(() => {
                 fireFinalActions()
             })
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
     }
     const handleFileUpload = e => {
 

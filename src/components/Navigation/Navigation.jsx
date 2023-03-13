@@ -9,21 +9,8 @@ import logo from '../../assets/images/logo.png'
 const Navigation = () => {
 
     const { user, logout } = useContext(AuthContext)
-    console.log(user)
-    // const [users, setUsers] = useState([])
-    // useEffect(() => {
-    //     loadUsers()
-    // }, [])
-    // const loadUsers = () => {
-    //     authService
-    //         .getAllUsers()
-    //         .then(({ data }) => {
-    //             setUsers(data)
-    //             console.log({ setUsers })
-    //         })
-    //         .catch(err => console.los(err))
 
-    // }
+
     return (
         <Navbar variant='dark' expand="lg" className='navigation mb-4'>
             <Container>

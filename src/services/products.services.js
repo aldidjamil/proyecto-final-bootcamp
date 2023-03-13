@@ -23,8 +23,8 @@ class ProductService {
         return this.api.get('/getAllProducts') //DONE
     }
 
-    getOneProduct(Product_id) { //DONE
-        return this.api.get(`/${Product_id}`)
+    getOneProduct(product_id) { //DONE
+        return this.api.get(`/${product_id}`)
     }
 
     getProductByOwner() {
@@ -35,16 +35,16 @@ class ProductService {
         return this.api.post('/addProduct', productData)  //DONE
     }
 
-    editProduct(Product_id, data) { //DONE
-        return this.api.put(`/edit/${Product_id}`, data)
+    editProduct(product_id, data) { //DONE
+        return this.api.put(`/edit/${product_id}`, data)
     }
 
-    updateStock(Product_id, stock) {
-        return this.api.put(`/updateStock/${Product_id}`, stock)
+    updateStock(product_id, stock) {
+        return this.api.put(`/updateStock/${product_id}`, stock)
     }
 
-    deleteProduct(Product_id) {
-        return this.api.delete(`/delete/${Product_id}`)
+    deleteProduct(product_id) {
+        return this.api.delete(`/delete/${product_id}`)
     }
 }
 

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import productsService from "../../services/products.services"
 import { AuthContext } from "../../contexts/auth.context"
@@ -8,23 +8,19 @@ import './ProductCard.css'
 
 
 
-const ProductCard = ({ title, description, imageUrl, format, _id, owner, price, setProducts, }) => {
+const ProductCard = ({ title, description, imageUrl, format, _id, owner, price }) => {
 
     const { user } = useContext(AuthContext)
+
+
     const navigate = useNavigate()
-
-
 
     const deleteProduct = (product_id) => {
         productsService
             .deleteProduct(product_id)
-            .then(() => {
-                return productsService.getProducts()
-            })
-            .then((data) => setProducts(data))
+            .then(() => navigate('/'))
             .catch(err => console.log(err))
     }
-
 
     return (
         <Card className='mb-5 productCard'>
@@ -37,9 +33,11 @@ const ProductCard = ({ title, description, imageUrl, format, _id, owner, price, 
                 <Link to={`/products/edit/${_id}`} >
                     <Button variant="outline-warning">Editar</Button>
                 </Link>
-                {/* <Button variant="outline-danger" onClick={() => deleteProduct(_id)}>Eliminar</Button> */}
-                {user._id === owner && <Button variant="outline-danger" onClick={() => deleteProduct(_id)}>Eliminar</Button>}
-                <Link to="javascript:history.back()"><Button variant="outline-dark">Volver</Button></Link>
+                <Button variant="outline-danger" onClick={() => deleteProduct(_id)}>Eliminar</Button>
+                {user._id === owner &&
+                    <Button variant="outline-danger" onClick={() => deleteProduct(_id)}>Eliminar OWNER</Button>
+                }
+                <Button onClick={() => navigate(-1)} variant="outline-dark">Volver</Button>
             </Card.Body>
         </Card>
 

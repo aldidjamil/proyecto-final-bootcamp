@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import uploadServices from "../../services/upload.services";
 import productsServices from './../../services/products.services'
-
+import FormError from "../FormError/FormError"
 
 const NewProductForm = ({ fireFinalActions }) => {
 
@@ -16,6 +16,7 @@ const NewProductForm = ({ fireFinalActions }) => {
     })
 
     const [loadingImage, setLoadingImage] = useState(false)
+    const [errors, setErrors] = useState([])
 
     const handleInputChange = e => {
         const { value, name } = e.target
@@ -30,7 +31,7 @@ const NewProductForm = ({ fireFinalActions }) => {
             .then(({ data }) => {
                 fireFinalActions()
             })
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
     }
 
     const handleFileUpload = e => {
@@ -82,6 +83,7 @@ const NewProductForm = ({ fireFinalActions }) => {
                 <Form.Control type="text" name="price" value={productData.price} onChange={handleInputChange} />
             </Form.Group>
 
+            {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}
             <Button variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? 'Cargando imagen...' : 'Crear nuevo producto'}</Button>
         </Form>
     );

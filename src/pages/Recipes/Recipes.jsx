@@ -1,7 +1,7 @@
 import RecipesList from "../../components/RecipesList/RecipesList"
 import { Link } from 'react-router-dom'
 
-import { Container } from 'react-bootstrap'
+import { Container, Button } from 'react-bootstrap'
 
 const Recipes = () => {
 
@@ -12,10 +12,10 @@ const Recipes = () => {
                 {
                     <>
                         <h1>Recetas de BeanBased</h1>
-                        <hr />
                         <Link to={'/NewRecipePage'}>
-                            <button>Crear Recetas</button>
+                            <Button variant="outline-dark">Crear Recetas</Button>
                         </Link>
+                        <hr />
                         <RecipesList />
                     </>
                 }

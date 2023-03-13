@@ -7,6 +7,9 @@ import productsService from "../../services/products.services"
 
 const ProductsList = ({ products }) => {
 
+    useEffect(() => {
+        console.log("LOS PRODUCTS", products)
+    }, [products])
 
     return (
         <Row className="mb-5">

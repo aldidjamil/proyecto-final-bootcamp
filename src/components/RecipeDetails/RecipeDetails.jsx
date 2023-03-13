@@ -3,13 +3,13 @@ import { Container, Col, Row, Card, Button } from 'react-bootstrap'
 import { useParams } from "react-router-dom"
 import recipesService from "../../services/recipes.services"
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom"
 
 
 const RecipeDetails = () => {
 
     const [recipes, setRecipes] = useState({})
-
+    const navigate = useNavigate()
     const { recipe_id } = useParams()
 
     useEffect(() => {
@@ -49,7 +49,7 @@ const RecipeDetails = () => {
                         </p> */}
                     </Card.Text>
                     <Link to='javascript:history.back()'>
-                        <Button variant="dark">Volver atrás</Button>
+                        <Button onClick={() => navigate(0)} variant="dark">Volver atrás</Button>
                     </Link>
                 </Card.Body>
                 <Card.Footer className="text-muted">Receta publicada por: {recipes.owner}</Card.Footer>

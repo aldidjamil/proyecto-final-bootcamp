@@ -38,9 +38,7 @@ const Products = () => {
                 {
                     <>
                         <h1>Listado de Products</h1>
-                        {/* <Link to="/NewProductPage"> */}
                         <Button onClick={() => setShowModal(true)} variant="outline-dark">Crear nuevo Producto</Button>
-                        {/* </Link> */}
                         <hr />
                         <ProductsList products={products} />
 
