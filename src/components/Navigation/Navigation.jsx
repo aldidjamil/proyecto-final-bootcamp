@@ -1,10 +1,11 @@
 import './Navigation.css'
 import { useContext, useState, useEffect } from 'react'
-import { Container, Nav, Navbar, Row } from 'react-bootstrap'
+import { Container, Nav, Navbar, Row, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 import authService from '../../services/auth.services'
 import logo from '../../assets/images/logo.png'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Navigation = () => {
 
@@ -32,8 +33,8 @@ const Navigation = () => {
                         <Link to="/AboutUs">
                             <Nav.Link as="span">Conocenos</Nav.Link>
                         </Link>
-                        <Link to="/Events">
-                            <Nav.Link as="span">Eventos</Nav.Link>
+                        <Link to="/">
+                            <Button> Cart 0 items</Button>
                         </Link>
                     </Nav>
                     <Nav className="ml-auto">
@@ -59,6 +60,7 @@ const Navigation = () => {
                                 <Link to="/crearUsuario">
                                     <Nav.Link as="span">Sign up</Nav.Link>
                                 </Link>
+
                             </>
                         }
                     </Nav>
