@@ -23,24 +23,20 @@ class RecipeService {
         return this.api.get('/getAllRecipes')
     }
 
-    getOneRecipe(Recipe_id) {
-        return this.api.get(`/Recipe/${Recipe_id}`)
+    getOneRecipe(recipe_id) {
+        return this.api.get(`/Recipe/${recipe_id}`)
     }
 
     saveRecipe(recipeData) {
         return this.api.post('/addRecipe', recipeData)
     }
 
-    editRecipe(Recipe_id) {
-        return this.api.put(`/edit/${Recipe_id}`)
+    editRecipe(recipe_id, data) {
+        return this.api.put(`/edit/${recipe_id}`, data)
     }
 
-    updateStock(Recipe_id) {
-        return this.api.put(`/updateStock/${Recipe_id}`)
-    }
-
-    deleteRecipe(Recipe_id) {
-        return this.api.delete(`/delete/${Recipe_id}`)
+    deleteRecipe(recipe_id) {
+        return this.api.delete(`/delete/${recipe_id}`)
     }
 }
 
