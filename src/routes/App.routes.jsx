@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import HomePage from "../pages/HomePage/HomePage"
 import AboutUs from "../pages/AboutUs/AboutUs"
-import Events from "../pages/Events/Events"
 import Products from "../pages/Products/Products"
 import Recipes from "../pages/Recipes/Recipes"
 import AboutTempeh from "../pages/AboutTempeh/AboutTempeh"
@@ -28,7 +27,6 @@ const AppRoutes = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/AboutTempeh" element={<AboutTempeh />} />
             <Route path="/AboutUs" element={<AboutUs />} />
-            <Route path="/Events" element={<Events />} />
             <Route path="/Products" element={<Products />} />
             <Route path="/Recipes" element={<Recipes />} />
             <Route path="/NewProductPage" element={<NewProductPage />} />
@@ -36,12 +34,11 @@ const AppRoutes = () => {
             <Route path="/products/edit/:product_id" element={<EditProductForm />} />
             <Route path="/recipes/edit/:recipe_id" element={<EditRecipeForm />} />
             <Route path="/iniciar-sesion" element={<LoginPage />} />
-            <Route path="/recipes/details/:recipe_id" element={<RecipeDetails />}></Route>
+            <Route path="/recipes/details/:recipe_id" element={<RecipeDetails />} />
             <Route path="/deliverypolicy" element={<DeliveryPolicy />} />
             <Route path="/cookiespolicy" element={<CookiesPolicy />} />
             <Route path="/privacypolicy" element={<PrivacyPolicy />} />
             <Route path="/legal" element={<Legal />} />
-
 
 
             <Route path="/crearUsuario" element={<SignupPage />} />

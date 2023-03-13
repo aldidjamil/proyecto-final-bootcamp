@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import productsService from "../../services/products.services"
 import ProductCard from "../../components/ProductCard/ProductCard";
+import recipesService from "../../services/recipes.services";
+import RecipeCard from "../../components/RecipeCard/RecipeCard"
 
 
 
@@ -14,8 +16,11 @@ const ProfilePage = () => {
 
     const [products, setProducts] = useState([])
 
+    const [recipes, setRecipes] = useState([])
+
     useEffect(() => {
         getProducts()
+        getRecipes()
     }, [])
 
     const getProducts = () => {
@@ -23,6 +28,15 @@ const ProfilePage = () => {
             .getProductByOwner()
             .then(({ data }) => {
                 setProducts(data)
+            })
+            .catch(err => console.log(err))
+    }
+
+    const getRecipes = () => {
+        recipesService
+            .getRecipeByOwner()
+            .then(({ data }) => {
+                setRecipes(data)
             })
             .catch(err => console.log(err))
     }
@@ -53,6 +67,19 @@ const ProfilePage = () => {
                     })
                 }
             </Card>
+
+            <Card>
+                {
+                    recipes.map(elm => {
+                        return (
+                            <Col md={{ span: 3 }} key={elm._id}>
+                                <RecipeCard {...elm} setRecipes={setRecipes} />
+                            </Col>
+                        )
+                    })
+                }
+            </Card>
+
         </Container>
     )
 }

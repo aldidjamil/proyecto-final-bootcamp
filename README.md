@@ -30,7 +30,6 @@ URL                       | Description                        | Protected
 `/`                       | Index Page                         |           |
 `/aboutus`                | Description of Bean Based          |           |
 `/abouttempeh`            | Description of Tempeh              |           |
-`/events`                 | Information about events           |           |
 `/products`               | List of all the Products           |           |
 `/products/:id`           | Details on Specific Product        |           |
 `/products/create`        | Create new Product                 |Yes        |
@@ -39,13 +38,14 @@ URL                       | Description                        | Protected
 `/recipes/:id`            | Details on Specific Recipe         |           |
 `/recipes/create`         | Create a new Recipe                |Yes        |
 `/recipes/edit/:id`       | Edit a Specific Product            |Yes        |
-`/login        `          | Log In                             |           | // Ver el Lunes
-`/signUp`                 | Create New User                    |           |
+`/login        `          | Log In                             |           | 
+`/iniciar.sesion`         | Create New User                    |           |
 `/users-list`             | List of all Users                  |Yes        |
 `/delete/:id`             | Profile of Specific User           |           |
-`/edit/:id`               | Edit a Specific User               |Yes        |
-
-
+`/recipes/details/:id`    | See recipes details                |Yes        | 
+`/crearUsuario`           | Create User                        |Yes        | 
+`/perfil`                 | See user profile                   |Yes        | 
+`/user/edit/:user_id`     | See recipes details                |Yes        | 
 
 
 

@@ -4,16 +4,14 @@ import { useState, useEffect } from "react"
 import authService from "../../services/auth.services"
 
 
-
-
-
 const UserList = () => {
-    const [users, setUsers] = useState([])
 
+    const [users, setUsers] = useState([])
 
     useEffect(() => {
         loadUsers()
     }, [])
+
     const loadUsers = () => {
         authService
             .getAllUsers()

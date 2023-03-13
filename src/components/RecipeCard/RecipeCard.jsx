@@ -1,10 +1,13 @@
 import recipesService from "../../services/recipes.services"
 import { Link } from 'react-router-dom'
 import { Card, Button } from "react-bootstrap"
-
+import { useContext } from "react"
+import { AuthContext } from "../../contexts/auth.context"
 
 
 const RecipeCard = ({ title, imageUrl, _id, setRecipes, steps }) => {
+
+    const { user } = useContext(AuthContext)
 
     const deleteRecipe = (recipe_id) => {
         recipesService
@@ -25,10 +28,14 @@ const RecipeCard = ({ title, imageUrl, _id, setRecipes, steps }) => {
                 <Link to={`/recipes/details/${_id}`} >
                     <p>Ver detalles</p>
                 </Link>
-                <Link to={`/recipes/edit/${_id}`} >
-                    <Button variant="outline-warning">Editar</Button>
-                </Link>
-                <Button variant="outline-danger" onClick={() => deleteRecipe(_id)}>Eliminar</Button>
+                {user && user.role === 'ADMIN' &&
+                    <Link to={`/recipes/edit/${_id}`} >
+                        <Button variant="outline-warning">Editar</Button>
+                    </Link>
+                }
+                {user && user.role === 'ADMIN' &&
+                    <Button variant="outline-danger" onClick={() => deleteRecipe(_id)}>Eliminar</Button>
+                }
             </Card.Body>
         </Card>
     )

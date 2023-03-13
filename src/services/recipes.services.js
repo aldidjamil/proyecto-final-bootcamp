@@ -27,6 +27,9 @@ class RecipeService {
         return this.api.get(`/Recipe/${recipe_id}`)
     }
 
+    getRecipeByOwner() {
+        return this.api.get('/owner')
+    }
     saveRecipe(recipeData) {
         return this.api.post('/addRecipe', recipeData)
     }
