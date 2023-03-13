@@ -4,7 +4,7 @@ import { Container, Nav, Navbar, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 import authService from '../../services/auth.services'
-import logo from './../assets/images/logo.png'
+import logo from '../../assets/images/logo.png'
 
 const Navigation = () => {
 

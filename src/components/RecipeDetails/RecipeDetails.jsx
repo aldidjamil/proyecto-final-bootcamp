@@ -40,6 +40,13 @@ const RecipeDetails = () => {
 
                             }
                         </p> */}
+                        {/* <p>
+                            INGREDIENTES
+                            {recipes.steps.map(elm =>
+                                <li key={elm.description} className="list"> {elm.description}</li>)
+
+                            }
+                        </p> */}
                     </Card.Text>
                     <Link to='javascript:history.back()'>
                         <Button variant="dark">Volver atrás</Button>

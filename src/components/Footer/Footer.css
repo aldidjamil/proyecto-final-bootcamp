@@ -31,3 +31,13 @@ footer {
 .fotos {
     justify-content: space-between;
 }
+
+ul {
+    list-style: none;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    padding-left: 200px;
+    padding-bottom: 0;
+    gap: 20px
+}

@@ -70,10 +70,10 @@ const NewProductForm = ({ fireFinalActions }) => {
                 </Form.Group>
                 <Form.Group as={Col} controlId="format">
                     <Form.Label>Formato</Form.Label>
-                    <Form.Control as="select" name="format" value={productData.format} onChange={handleInputChange}>
-                        <option value="125">125 </option>
-                        <option value="200">200 </option>
-                    </Form.Control>
+                    <Form.Group as={Col} controlId="format">
+                        <Form.Label>Formato</Form.Label>
+                        <Form.Control type="text" name="format" value={productData.format} onChange={handleInputChange} />
+                    </Form.Group>
                 </Form.Group>
             </Row>
             <Row className="mb-3">

@@ -1,8 +1,11 @@
 import video from './../../assets/videos/promovideo.mp4'
+import { Container, Col } from 'react-bootstrap'
 
 const AboutTempeh = () => {
     return (
-        <div>
+        <Container className='mb-5 '>
+
+
             <h1>¿Qué es el TEMPEH?</h1>
             <br />
 
@@ -34,7 +37,7 @@ const AboutTempeh = () => {
                 </section>
 
             </div>
-        </div>
+        </Container>
 
     )
 }
