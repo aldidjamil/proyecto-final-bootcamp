@@ -38,7 +38,7 @@ const EditProductForm = () => {
         productsServices
             .getOneProduct(product_id)
             .then(({ data }) => setProductData(data))
-            .catch(err => (console.log(err)))
+            .catch(err => console.log(err))
     }
 
     const handleProductSubmit = e => {

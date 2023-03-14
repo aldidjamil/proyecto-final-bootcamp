@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/auth.context";
-import { Button, Card, Container, Col } from "react-bootstrap";
+import { Button, Card, Container, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import productsService from "../../services/products.services"
@@ -43,9 +43,9 @@ const ProfilePage = () => {
 
 
     return (
-        <Container>
+        <Container border="light" className="ml-2">
 
-            <Card className='mb-3 UserCard'>
+            <Card border="light" className='mb-3 UserCard'>
                 <Card.Body>
                     <h1>Bienvenido a tu perfil, {user.username}</h1>
                     <Card.Text>{user.email}</Card.Text>
@@ -56,28 +56,34 @@ const ProfilePage = () => {
                 </Card.Body>
             </Card>
 
-            <Card>
-                {
-                    products.map(elm => {
-                        return (
-                            <Col md={{ span: 3 }} key={elm._id}>
-                                <ProductCard {...elm} setProducts={setProducts} />
-                            </Col>
-                        )
-                    })
-                }
+            <Card border="light" className="my-5">
+                <Row className="mx-5">
+                    <h1>My Products</h1>
+                    {
+                        products.map(elm => {
+                            return (
+                                <Col md={{ span: 3 }} key={elm._id}>
+                                    <ProductCard {...elm} setProducts={setProducts} />
+                                </Col>
+                            )
+                        })
+                    }
+                </Row>
             </Card>
 
-            <Card>
-                {
-                    recipes.map(elm => {
-                        return (
-                            <Col md={{ span: 3 }} key={elm._id}>
-                                <RecipeCard {...elm} setRecipes={setRecipes} />
-                            </Col>
-                        )
-                    })
-                }
+            <Card border="light" className="my-5">
+                <Row className="mx-5">
+                    <h1>My Recipes</h1>
+                    {
+                        recipes.map(elm => {
+                            return (
+                                <Col md={{ span: 3 }} key={elm._id}>
+                                    <RecipeCard {...elm} setRecipes={setRecipes} />
+                                </Col>
+                            )
+                        })
+                    }
+                </Row>
             </Card>
 
         </Container>

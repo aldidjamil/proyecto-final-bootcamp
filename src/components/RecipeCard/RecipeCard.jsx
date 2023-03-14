@@ -21,7 +21,7 @@ const RecipeCard = ({ title, imageUrl, _id, setRecipes, steps }) => {
 
 
     return (
-        <Card className='mb-5 productCard'>
+        <Card className='mb-5 productCard card'>
             <Card.Body>
                 <img src={imageUrl} alt={_id} />
                 <h1>{title}</h1>

@@ -33,7 +33,7 @@ function AuthProviderWrapper(props) {
         localStorage.removeItem('authToken')
         setUser(null)
         setIsLoading(false)
-        navigate("/iniciar-sesion")
+        navigate("/AboutTempeh")
     }
 
     useEffect(() => {

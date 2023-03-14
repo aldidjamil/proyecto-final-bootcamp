@@ -1,4 +1,9 @@
 .userCard img {
     height: 150px;
     object-fit: cover;
+
+}
+
+.UserCard {
+    background-color: #faecd7;
 }

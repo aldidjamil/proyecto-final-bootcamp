@@ -24,7 +24,6 @@ const Products = () => {
             .catch(err => console.log(err))
     }
 
-
     const fireFinalActions = () => {
         setShowModal(false)
         loadProducts()
@@ -32,19 +31,13 @@ const Products = () => {
 
     return (
 
-        <>
+        <Container>
 
-            <Container>
-                {
-                    <>
-                        <h1>Listado de Products</h1>
-                        <Button onClick={() => setShowModal(true)} variant="outline-dark">Crear nuevo Producto</Button>
-                        <hr />
-                        <ProductsList products={products} />
+            <h1>Listado de Productos</h1>
+            <Button onClick={() => setShowModal(true)} variant="outline-dark">Crear nuevo Producto</Button>
+            <hr />
+            <ProductsList products={products} />
 
-                    </>
-                }
-            </Container>
 
             <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton> <Modal.Title>Nuevo Producto</Modal.Title></Modal.Header>
@@ -53,8 +46,8 @@ const Products = () => {
                 </Modal.Body>
             </Modal>
 
+        </Container>
 
-        </>
     )
 }
 
