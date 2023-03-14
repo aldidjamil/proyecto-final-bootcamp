@@ -4,17 +4,13 @@ const Store = () => {
 
     return (
         <>
-            <h1>funciona</h1>
-
+            <h1 align="center" className="p-3">Bienvenidos a la tienda!</h1>
             <Row xs={1} md={3} className="g-4">
-                <Col align="center">
-                    <h1>Producto</h1>
-                </Col>
-                <Col align="center">
-                    <h1>Producto</h1>
-                </Col>
-
-
+                {productsArray.map((product, idx) => (
+                    <Col align="center" key={idx}>
+                        <ProductCard product={product} />
+                    </Col>
+                ))}
             </Row>
         </>
     )

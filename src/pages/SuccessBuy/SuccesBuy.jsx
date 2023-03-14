@@ -1,7 +1,7 @@
 const SuccesBuy = () => {
 
     return (
-        <h1>Estamos</h1>
+        <h1>Su compra se ha realizado con éxito, muchas gracias por confiar en nosotros!</h1>
     )
 }
 
