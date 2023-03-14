@@ -1,6 +1,6 @@
 import ProductCard from "../ProductCard/ProductCard"
-import { Col, Row } from "react-bootstrap"
-import { useState, useEffect } from "react"
+import { Col, Row, Button, Form } from "react-bootstrap"
+import { useState, useEffect, useContext } from "react"
 import productsService from "../../services/products.services"
 
 
@@ -19,6 +19,7 @@ const ProductsList = ({ products }) => {
 
                         <Col md={{ span: 3 }} key={elm._id}>
                             <ProductCard {...elm} />
+
                         </Col>
                     )
                 })
