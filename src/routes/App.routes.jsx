@@ -29,24 +29,22 @@ const AppRoutes = () => {
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/Products" element={<Products />} />
             <Route path="/Recipes" element={<Recipes />} />
-            <Route path="/NewProductPage" element={<NewProductPage />} />
-            <Route path="/NewRecipePage" element={<NewRecipePage />} />
-            <Route path="/products/edit/:product_id" element={<EditProductForm />} />
-            <Route path="/recipes/edit/:recipe_id" element={<EditRecipeForm />} />
             <Route path="/iniciar-sesion" element={<LoginPage />} />
             <Route path="/recipes/details/:recipe_id" element={<RecipeDetails />} />
             <Route path="/deliverypolicy" element={<DeliveryPolicy />} />
             <Route path="/cookiespolicy" element={<CookiesPolicy />} />
             <Route path="/privacypolicy" element={<PrivacyPolicy />} />
             <Route path="/legal" element={<Legal />} />
-
-
             <Route path="/crearUsuario" element={<SignupPage />} />
 
             <Route element={<PrivateRoute />}>
                 <Route path="/perfil" element={<ProfilePage />} />
                 <Route path="/user/edit/:user_id" element={<UserEditForm />} />
                 <Route path="/appUsers" element={<UserListPage />} />
+                <Route path="/products/edit/:product_id" element={<EditProductForm />} />
+                <Route path="/recipes/edit/:recipe_id" element={<EditRecipeForm />} />
+                <Route path="/NewRecipePage" element={<NewRecipePage />} />
+                <Route path="/NewProductPage" element={<NewProductPage />} />
             </Route>
 
             <Route path="*" element={<p>404</p>} />

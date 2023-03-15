@@ -1,10 +1,13 @@
-import { Button, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Card, Button, ButtonGroup } from "react-bootstrap"
+import { useContext } from "react"
+import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.services";
 import './UserCard.css'
-
+import { AuthContext } from "../../contexts/auth.context";
 
 const UserCard = ({ email, username, _id, role, setUsers }) => {
+    const navigate = useNavigate()
+    const { user } = useContext(AuthContext)
 
     const deleteUser = (user_id) => {
         authService
@@ -21,10 +24,14 @@ const UserCard = ({ email, username, _id, role, setUsers }) => {
                     <Card.Text>{email}</Card.Text>
                     <Card.Text>{username}</Card.Text>
                     <Card.Text>{role}</Card.Text>
-                    <Link to={`/user/edit/${_id}`} >
-                        <Button variant="outline-warning">Editar</Button>
-                    </Link>
-                    <Button variant="outline-danger" onClick={() => deleteUser(_id)}>Eliminar</Button>
+                    {user && user.role === 'ADMIN' &&
+                        <Link to={`/user/edit/${_id}`} >
+                            <Button variant="outline-warning">Editar</Button>
+                        </Link>
+                    }
+                    {user && user.role === 'ADMIN' &&
+                        <Button variant="outline-danger" onClick={() => deleteUser(_id)}>Eliminar</Button>
+                    }
                 </Card.Body>
             </Card>
         </div>

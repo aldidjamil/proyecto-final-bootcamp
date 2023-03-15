@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { Link } from "react-router-dom"
 import productsService from "../../services/products.services"
 import { AuthContext } from "../../contexts/auth.context"
-import { Card, Button, Form, Row, Col } from "react-bootstrap"
+import { Card, Button, Form, Row, Col, ButtonGroup } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import './ProductCard.css'
 import { CartContext } from "../../contexts/cart.context"
@@ -35,18 +35,20 @@ const ProductCard = ({ title, description, imageUrl, format, _id, owner, price }
                 <p>{description}</p>
                 <p>{format} Gramos</p>
                 <p>{price} Euros</p>
-                {user && user.role === 'ADMIN' &&
-                    <Link to={`/products/edit/${_id}`} >
-                        <Button variant="outline-warning">Editar</Button>
-                    </Link>
-                }
-                {user && user.role === 'ADMIN' &&
-                    <Button variant="outline-danger" onClick={() => deleteProduct(_id)}>Eliminar</Button>
-                }
-                {user._id === owner &&
-                    <Button variant="outline-danger" onClick={() => deleteProduct(_id)}>Eliminar OWNER</Button>
-                }
-                <Button onClick={() => navigate(-1)} variant="outline-dark">Volver</Button>
+
+                <ButtonGroup className='my-2'>
+                    {user && user.role === 'ADMIN' &&
+                        <Link to={`/products/edit/${_id}`} >
+                            <Button className="mx-1" variant="outline-warning">Editar</Button>
+                        </Link>
+                    }
+                    {user && user.role === 'ADMIN' &&
+                        <Link>
+                            <Button className="mx-1" variant="outline-danger" onClick={() => deleteProduct(_id)}>Eliminar</Button>
+                        </Link>
+                    }
+                </ButtonGroup>
+
                 {/* {productQuantity > 0 ?
                     <>
                         <Form as={Row}>

@@ -1,11 +1,11 @@
 import recipesService from "../../services/recipes.services"
 import { Link } from 'react-router-dom'
-import { Card, Button } from "react-bootstrap"
+import { Card, Button, ButtonGroup } from "react-bootstrap"
 import { useContext } from "react"
 import { AuthContext } from "../../contexts/auth.context"
 
 
-const RecipeCard = ({ title, imageUrl, _id, setRecipes, steps }) => {
+const RecipeCard = ({ title, imageUrl, _id, setRecipes, steps, owner }) => {
 
     const { user } = useContext(AuthContext)
 
@@ -28,14 +28,33 @@ const RecipeCard = ({ title, imageUrl, _id, setRecipes, steps }) => {
                 <Link to={`/recipes/details/${_id}`} >
                     <p>Ver detalles</p>
                 </Link>
-                {user && user.role === 'ADMIN' &&
-                    <Link to={`/recipes/edit/${_id}`} >
-                        <Button variant="outline-warning">Editar</Button>
-                    </Link>
-                }
-                {user && user.role === 'ADMIN' &&
-                    <Button variant="outline-danger" onClick={() => deleteRecipe(_id)}>Eliminar</Button>
-                }
+
+                <ButtonGroup className="my-2">
+                    {user && user.role === 'ADMIN' &&
+                        <Link to={`/recipes/edit/${_id}`} >
+                            <Button className="mx-1" variant="outline-warning">Editar</Button>
+                        </Link>
+                    }
+                    {user && user.role === 'ADMIN' &&
+                        <Link>
+                            <Button className="mx-1" variant="outline-danger" onClick={() => deleteRecipe(_id)}>Eliminar</Button>
+                        </Link>
+                    }
+                </ButtonGroup>
+
+                <ButtonGroup className="my-2">
+                    {user && user._id === owner &&
+                        <Link to={`/products/edit/${_id}`} >
+                            <Button className="mx-1" variant="outline-warning">Editar</Button>
+                        </Link>
+                    }
+
+                    {user && user._id === owner &&
+                        <Link>
+                            <Button className="mx-1" variant="outline-danger" onClick={() => deleteRecipe(_id)}>Eliminar</Button>
+                        </Link>
+                    }
+                </ButtonGroup>
             </Card.Body>
         </Card>
     )
