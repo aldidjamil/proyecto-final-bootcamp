@@ -19,6 +19,8 @@ import DeliveryPolicy from "../pages/DeliveryPolicy/DeliveryPolicy"
 import CookiesPolicy from "../pages/CookiesPolicy/CookiesPolicy"
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy"
 import Legal from "../pages/Legal/Legal"
+import ShoppingCart from "../components/ShoppingCart/ShoppingCart"
+import SingleProductDetails from "../components/SingleProductCard/SingleProductCard"
 
 
 const AppRoutes = () => {
@@ -39,6 +41,9 @@ const AppRoutes = () => {
             <Route path="/cookiespolicy" element={<CookiesPolicy />} />
             <Route path="/privacypolicy" element={<PrivacyPolicy />} />
             <Route path="/legal" element={<Legal />} />
+            <Route path="/shoppingCart" element={<ShoppingCart />} />
+            <Route path="/products/details/:product_id" element={<SingleProductDetails />} />
+
 
 
             <Route path="/crearUsuario" element={<SignupPage />} />

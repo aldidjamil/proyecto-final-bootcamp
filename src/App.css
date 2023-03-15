@@ -47,3 +47,12 @@ a {
 body {
   background-color: #F2F2F2;
 }
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 6rem
+}
+
+h2 {
+  font-family: 'Dancing Script', cursive;
+}

@@ -1,3 +1,8 @@
 .container {
     margin-bottom: 50px;
 }
+
+.video {
+    border-width: 50px;
+    border-color: black;
+}
