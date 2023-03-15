@@ -1,0 +1,22 @@
+.recipeimagedetails {
+    height: 750px;
+    width: 500px;
+    float: left;
+    display: block;
+
+}
+
+.textonrecipe {
+
+    justify-content: center;
+    align-items: center;
+}
+
+.list {
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style-position: inside;
+    margin-left: 100px;
+}

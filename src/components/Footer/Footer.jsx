@@ -1,56 +1,56 @@
-import { Link } from 'react-router-dom'
-import './Footer.css'
-import instagram from './../../assets/images/insta.png'
+import { Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './Footer.css';
+import instagram from './../../assets/images/instagram.jpeg'
 import fb from './../../assets/images/facebook.png'
-import logo from '.././../assets/images/logo.png'
 
 
-const Footer = () => {
-
-    return <footer>
-        <div className='container'>
-            <section style={{ float: 'left', width: '50%', textAlign: 'justify', textAlignLast: 'unset', justifyContent: 'center', }}>
-
-                <ul>
-                    <Link to='/deliverypolicy'>
-                        <li>Política de Recogida, Envios y Devoluciones</li>
-                    </Link>
-                    <Link to='/cookiespolicy'>
-                        <li>Política de Cookies</li>
-                    </Link>
-                    <Link to='/privacypolicy'>
-                        <li>Política de Privacidad</li>
-                    </Link>
-                </ul>
-            </section>
-            <section style={{ float: 'right', width: '50%', textAlign: 'justify', textAlignLast: 'unset', justifyContent: 'center', }}>
-
-                <ul>
-                    <Link to='/legal'>
-                        <li>Aviso legal</li>
-                    </Link>
-                    <Link to='/innovationfood'>
-                        <li>Negocio Alimenticio Innovador</li>
-                    </Link>
-                </ul>
-            </section>
-            <section className='fotos' style={{ float: 'right', width: '50%', textAlign: 'justify', textAlignLast: 'unset', justifyContent: 'center', }}>
-
-                <ul>
-                    <Link to='https://www.instagram.com/tempehjava'>
-                        <img className='fb' src={instagram} alt="" />
-                    </Link>
-                    <Link to='https://www.facebook.com/tempehjava/'>
-                        <img className='fb' src={fb} alt="" />
-
-                    </Link>
-                </ul>
-            </section>
-
+function Footer() {
+    return (
+        <div className="footer-container">
+            <Row className="mt-auto">
+                <Col>
+                    <h5>Políticas</h5>
+                    <ul className="footer-list">
+                        <li>
+                            <Link to="/deliverypolicy">Política de Recogida, Envios y Devoluciones</Link>
+                        </li>
+                        <li>
+                            <Link to="/cookiespolicy">Política de Cookies</Link>
+                        </li>
+                        <li>
+                            <Link to="/privacypolicy">Política de Privacidad</Link>
+                        </li>
+                    </ul>
+                </Col>
+                <Col>
+                    <h5>Otros</h5>
+                    <ul className="footer-list">
+                        <li>
+                            <Link to="/legal">Aviso legal</Link>
+                        </li>
+                        <li>
+                            <Link to="/innovationfood">Negocio Alimenticio Innovador</Link>
+                        </li>
+                    </ul>
+                </Col>
+                <Col className="logosfooter mx-2">
+                    <h5>Síguenos en</h5>
+                    <ul className="social-list">
+                        <li>
+                            <Link to="https://www.instagram.com/tempehjava" target="_blank">
+                                <img className="social-icon" src={instagram} alt="Instagram" />
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="https://www.facebook.com/tempehjava/" target="_blank">
+                                <img className="social-icon" src={fb} alt="Facebook" />
+                            </Link>
+                        </li>
+                    </ul>
+                </Col>
+            </Row>
         </div>
-
-    </footer>
-
+    );
 }
-
 export default Footer

@@ -1,131 +1,60 @@
-import { createContext, useState } from "react";
-// import { productsArray, getProductData } from "./productsStore";
-import productsService from "../services/products.services";
+import { createContext, useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import productsService from './../services/products.services'
+import cartService from "../services/cart.services"
+
+
+const CartContext = createContext()
+
+function CartProviderWrapper(props) {
+
+    const [cartData, setCartData] = useState({
+
+        buy: [],
+        totalPrice: 0
+    })
 
 
 
-export const CartContext = createContext({
-    items: [],
-    getProductQuantity: () => { },
-    addOneToCart: () => { },
-    removeOneFromCart: () => { },
-    deleteFromCart: () => { },
-    getTotalCost: () => { }
-});
+    const navigate = useNavigate()
 
-export function CartProvider({ children }) {
-    const [cartProducts, setCartProducts] = useState([]);
+    const addToCart = () => {
 
-    // [ { id: 1 , quantity: 3 }, { id: 2, quantity: 1 } ]
+        console.log('----------QUIEN LLEGA', cartData)
 
-    function getProductQuantity(product_id) {
-        // const quantity = cartProducts.find(product => product.id === id)?.quantity;
+        cartService
+            .createCart(cartData)
+            .then((cart) => {
+                console.log("quiebnbnn llega", cart)
+                // navigate('/')
+            })
+            .catch(err => console.log(err))
 
-        const loadProducts = (product_id) => {
-            productsService
-                .getOneProduct(product_id)
-                .then(({ data }) => (data))
-                .catch(err => console.log(err))
-
-        }
-
-        const quantity = cartProducts
-
-
-        if (quantity === undefined) {
-            return 0;
-        }
-
-        return quantity;
     }
 
-    function addOneToCart(id) {
-        const quantity = getProductQuantity(id);
+    const getProducts = () => {
 
-        if (quantity === 0) { // product is not in cart
-            setCartProducts(
-                [
-                    ...cartProducts,
-                    {
-                        id: id,
-                        quantity: 1
-                    }
-                ]
-            )
-        } else { // product is in cart
-            // [ { id: 1 , quantity: 3 }, { id: 2, quantity: 1 } ]    add to product id of 2
-            setCartProducts(
-                cartProducts.map(
-                    product =>
-                        product.id === id                                // if condition
-                            ? { ...product, quantity: product.quantity + 1 } // if statement is true
-                            : product                                        // if statement is false
-                )
-            )
-        }
+        // cartData.buy.map(elm => { elm })
+
+
+
+        productsService
+            .getOneProduct()
+            .then((response) => console.log(response))
+            .catch(err => console.log(err))
     }
 
-    function removeOneFromCart(id) {
-        const quantity = getProductQuantity(id);
-
-        if (quantity == 1) {
-            deleteFromCart(id);
-        } else {
-            setCartProducts(
-                cartProducts.map(
-                    product =>
-                        product.id === id                                // if condition
-                            ? { ...product, quantity: product.quantity - 1 } // if statement is true
-                            : product                                        // if statement is false
-                )
-            )
-        }
-    }
-
-    function deleteFromCart(id) {
-        // [] if an object meets a condition, add the object to array
-        // [product1, product2, product3]
-        // [product1, product3]
-        setCartProducts(
-            cartProducts =>
-                cartProducts.filter(currentProduct => {
-                    return currentProduct.id != id;
-                })
-        )
-    }
-
-    function getTotalCost() {
 
 
 
-        let totalCost = 0;
-        cartProducts.map((cartItem) => {
-            const productData = productsService.getOneProduct(cartItem.id);
-            totalCost += (productData.price * cartItem.quantity);
-        });
-        return totalCost;
-    }
 
-    const contextValue = {
-        items: cartProducts,
-        getProductQuantity,
-        addOneToCart,
-        removeOneFromCart,
-        deleteFromCart,
-        getTotalCost
-    }
+
 
     return (
-        <CartContext.Provider value={contextValue}>
-            {children}
+        <CartContext.Provider value={{ setCartData, addToCart, cartData }}>
+            {props.children}
         </CartContext.Provider>
     )
 }
 
-export default CartProvider;
-
-
-// CODE DOWN HERE
-
-// Context (cart, addToCart, removeCart)
-// Provider -> gives your React app access to all the things in your context
+export { CartContext, CartProviderWrapper }

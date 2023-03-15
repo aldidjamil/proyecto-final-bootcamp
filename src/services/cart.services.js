@@ -16,25 +16,23 @@ class CartService {
 
             return config
         })
-
     }
 
     createCart(cartData) {
         return this.api.post('/createCart', cartData)
     }
 
-    getCart(cart_id) {
-        return this.api.get(`/getCart/${cart_id}`)
+    getCart(card_id) {
+        return this.api.get(`/${card_id}`)
     }
 
-    editQuantity(cart_id, data) {
-        return this.api.put(`/editQuantity/${cart_id}`, data)
+    editCart(cart_id, data) {
+        return this.api.put(`/editQuantity/:${cart_id}`, data)
     }
 
     deleteCart(cart_id) {
-        return this.api.delete(`/editQuantity/${cart_id}`)
+        return this.api.delete(`/delete/:${cart_id}`)
     }
-
 }
 
 const cartService = new CartService()

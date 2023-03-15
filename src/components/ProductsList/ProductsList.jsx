@@ -8,7 +8,6 @@ import productsService from "../../services/products.services"
 const ProductsList = ({ products }) => {
 
 
-
     return (
         <Row className="mb-5">
             {

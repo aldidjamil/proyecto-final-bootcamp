@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom"
 import recipesService from "../../services/recipes.services"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
+import './RecipeDetails.css'
+
 
 
 const RecipeDetails = () => {
@@ -36,6 +38,7 @@ const RecipeDetails = () => {
                         {recipes.ingredients.map(elm =>
                             <li key={elm} className="list"> {elm}</li>)
 
+<<<<<<< HEAD
                         }
                     </p>
                     <p className="text-uppercase font-weight-bold">
@@ -52,6 +55,38 @@ const RecipeDetails = () => {
             </Card.Body>
             {/* <Card.Footer className="text-muted">Receta publicada por: {recipes.owner.username}</Card.Footer> */}
         </Card>
+=======
+            <Card className="text-center">
+                <Card.Header> <h1>{recipes.title}</h1></Card.Header>
+                <Card.Body>
+                    <Container className="textonrecipe">
+                        <Card.Title> <img className="recipeimagedetails" src={recipes.imageUrl} alt="" />  </Card.Title>
+                        <Card.Text className="mx-5">
+                            <p> <b>INGREDIENTES</b>
+                                {recipes.ingredients.map(elm =>
+                                    <li key={elm} className="list"> {elm}</li>)
+
+                                }
+                            </p>
+                            <p>
+                                <b> PASOS</b>
+                                {recipes.steps.map(elm =>
+                                    <li key={elm.description} className="list"> {elm.description}</li>)
+
+                                }
+                            </p>
+                        </Card.Text>
+                        <Link>
+                            <Button onClick={() => navigate(0)} variant="dark">Volver atrás</Button>
+                        </Link>
+                    </Container>
+                </Card.Body>
+                <Card.Footer className="text-muted">Receta publicada por: {recipes.owner}</Card.Footer>
+            </Card>
+
+
+        </>
+>>>>>>> 7d939e1767bbb6a5ae0f8e45b212a510c3b48222
     )
 }
 
