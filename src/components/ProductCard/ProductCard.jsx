@@ -57,9 +57,6 @@ const ProductCard = ({ title, description, imageUrl, format, _id, owner, price }
                 {user && user.role === 'ADMIN' &&
                     <Button variant="outline-danger" onClick={() => deleteProduct(_id)}>Eliminar</Button>
                 }
-                {user._id === owner &&
-                    <Button variant="outline-danger" onClick={() => deleteProduct(_id)}>Eliminar OWNER</Button>
-                }
                 <Button onClick={() => navigate(-1)} variant="outline-dark">Volver</Button>
                 {/* {productQuantity > 0 ?
                     <>
