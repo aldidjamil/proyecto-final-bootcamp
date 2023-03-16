@@ -7,18 +7,20 @@ import { useNavigate } from "react-router-dom"
 import './SingleProductDetails.css'
 import { CartContext } from "../../contexts/cart.context";
 
-
-
 const SingleProductDetails = () => {
 
-    const [product, setProduct] = useState({ title: "", imageUrl: "", description: "", owner: "" })
+    const [product, setProduct] = useState({
+        title: "",
+        imageUrl: "",
+        description: "",
+        owner: ""
+    })
+
+    const [quantity, setQuantity] = useState(0)
+
     const navigate = useNavigate()
     const { product_id } = useParams()
     const { cartData, addToCart, setCartData } = useContext(CartContext)
-
-    useEffect(() => {
-        console.log("EL CARRITO =>", cartData)
-    }, [cartData])
 
     useEffect(() => {
         loadProductData()
@@ -33,23 +35,22 @@ const SingleProductDetails = () => {
             .catch(err => console.log(err))
     }
 
-
-    const [quantity, setQuantity] = useState(0);
-
     const incrementQuantity = () => {
         setQuantity(quantity + 1);
-    };
+    }
 
     const decrementQuantity = () => {
         setQuantity(quantity - 1);
     }
 
     const handleAddToCart = () => {
-        cartData.buy.push({ product: product_id, quantity })
+        const buyCopy = [...cartData.buy]
+        buyCopy.push({ product: product_id, quantity })
+        setCartData({ ...cartData, buy: buyCopy })
         setQuantity(0)
-        setCartData(cartData)
-        addToCart()
+        // addToCart()
     }
+
 
 
 

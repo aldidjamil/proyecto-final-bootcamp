@@ -19,7 +19,6 @@ const NewRecipeForm = ({ fireFinalActions }) => {
     const [errors, setErrors] = useState([])
 
 
-
     let handleChangeDescription = (i, e) => {
 
         let stepsCopy = JSON.parse(JSON.stringify(recipeData.steps))
@@ -86,6 +85,7 @@ const NewRecipeForm = ({ fireFinalActions }) => {
             })
             .catch(err => setErrors(err.response.data.errorMessages))
     }
+
     const handleFileUpload = e => {
 
         setLoadingImage(true)
@@ -98,7 +98,6 @@ const NewRecipeForm = ({ fireFinalActions }) => {
                 setLoadingImage(false)
             })
             .catch(err => {
-                console.log(err)
                 setLoadingImage(false)
             })
     }

@@ -14,7 +14,7 @@ const LoginForm = () => {
     })
 
     const navigate = useNavigate()
-    const { authenticateUser, user } = useContext(AuthContext)
+    const { authenticateUser } = useContext(AuthContext)
     const [error, setError] = useState('')
 
     const handleInputChange = e => {

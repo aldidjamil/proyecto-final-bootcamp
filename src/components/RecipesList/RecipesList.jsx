@@ -5,7 +5,6 @@ import recipesService from "../../services/recipes.services"
 
 const RecipesList = () => {
 
-
     const [recipes, setRecipes] = useState([])
 
     useEffect(() => {

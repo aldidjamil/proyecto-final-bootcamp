@@ -17,10 +17,8 @@ const EditRecipeForm = () => {
         }],
         ingredients: [""]
     })
-    const [loadingImage, setLoadingImage] = useState(false)
 
-    useEffect(() => {
-    }, [recipeData])
+    const [loadingImage, setLoadingImage] = useState(false)
 
     const { recipe_id } = useParams()
 
@@ -31,11 +29,8 @@ const EditRecipeForm = () => {
     const getOneRecipe = (recipe_id) => {
         recipesService
             .getOneRecipe(recipe_id)
-            .then(({ data }) => {
-                setRecipeData(data)
-                console.log(data)
-            })
-            .catch(err => (console.log(err)))
+            .then(({ data }) => setRecipeData(data))
+            .catch(err => console.log(err))
     }
 
 
@@ -55,6 +50,7 @@ const EditRecipeForm = () => {
 
         setRecipeData({ ...recipeData, steps: stepsCopy })
     }
+
     let addFormFieldsIngredients = () => {
 
         let ingredientsCopy = JSON.parse(JSON.stringify(recipeData.ingredients))
@@ -70,7 +66,6 @@ const EditRecipeForm = () => {
 
         setRecipeData({ ...recipeData, steps: stepsCopy })
     }
-
 
     const handleInputChange = e => {
         const { value, name } = e.target
@@ -92,8 +87,6 @@ const EditRecipeForm = () => {
 
         setRecipeData({ ...recipeData, ingredients: ingredientsCopy })
     }
-
-
 
     const handleRecipeSubmit = e => {
         e.preventDefault()
@@ -118,7 +111,6 @@ const EditRecipeForm = () => {
                 setLoadingImage(false)
             })
             .catch(err => {
-                console.log(err)
                 setLoadingImage(false)
             })
     }

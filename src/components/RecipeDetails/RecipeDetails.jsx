@@ -10,7 +10,13 @@ import './RecipeDetails.css'
 
 const RecipeDetails = () => {
 
-    const [recipes, setRecipes] = useState({ title: "", imageUrl: "", ingredients: [], steps: [], owner: "" })
+    const [recipes, setRecipes] = useState({
+        title: "",
+        imageUrl: "",
+        ingredients: [],
+        steps: [],
+        owner: ""
+    })
     const navigate = useNavigate()
     const { recipe_id } = useParams()
 
@@ -23,7 +29,6 @@ const RecipeDetails = () => {
             .getOneRecipe(recipe_id)
             .then(({ data }) => {
                 setRecipes(data)
-                console.log(data)
             })
             .catch(err => console.log(err))
     }
@@ -33,7 +38,7 @@ const RecipeDetails = () => {
             <Card className="text-center">
                 <Card.Header> <h1>{recipes.title}</h1></Card.Header>
                 <Card.Body>
-                    <Card.Title> <img src={recipes.imageUrl} alt="" />  </Card.Title>
+                    <Card.Title> <img className="recipeDetaisImage" src={recipes.imageUrl} alt="" />  </Card.Title>
                     <Card.Text>
                         <p> INGREDIENTES
                             {recipes.ingredients.map(elm =>

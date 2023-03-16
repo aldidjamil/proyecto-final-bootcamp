@@ -21,6 +21,7 @@ import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy"
 import Legal from "../pages/Legal/Legal"
 import ShoppingCart from "../components/ShoppingCart/ShoppingCart"
 import SingleProductDetails from "../components/SingleProductCard/SingleProductCard"
+import SuccessBuy from "../pages/SuccessBuy/SuccesBuy"
 
 
 const AppRoutes = () => {
@@ -39,10 +40,8 @@ const AppRoutes = () => {
             <Route path="/legal" element={<Legal />} />
             <Route path="/shoppingCart" element={<ShoppingCart />} />
             <Route path="/products/details/:product_id" element={<SingleProductDetails />} />
-
-
-
             <Route path="/crearUsuario" element={<SignupPage />} />
+            <Route path="/success" element={<SuccessBuy />} />
 
             <Route element={<PrivateRoute />}>
                 <Route path="/perfil" element={<ProfilePage />} />

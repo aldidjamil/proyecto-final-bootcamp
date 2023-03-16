@@ -45,6 +45,10 @@ class AuthService {
         return this.api.get(`/${user_id}`)
     }
 
+    updateToken = () => {
+        return this.api.get('/updateToken')
+    }
+
 }
 
 const authService = new AuthService()

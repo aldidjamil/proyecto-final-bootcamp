@@ -18,9 +18,6 @@ const EditProductForm = () => {
     })
     const [loadingImage, setLoadingImage] = useState(false)
 
-    useEffect(() => {
-    }, [productData])
-
     const navigate = useNavigate()
 
     const { product_id } = useParams()
@@ -64,7 +61,6 @@ const EditProductForm = () => {
                 setLoadingImage(false)
             })
             .catch(err => {
-                console.log(err)
                 setLoadingImage(false)
             })
     }
