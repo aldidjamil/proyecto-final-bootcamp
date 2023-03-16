@@ -12,7 +12,7 @@ const Recipes = () => {
                 <>
                     <h1>Recetas de BeanBased</h1>
                     <Button className="px-5 mx-5 justify-content-center" onClick={() => navigate(-1)} variant="outline-dark">Volver</Button>
-                    <Link to={'/NewRecipePage'}>
+                    <Link to={'/newRecipePage'}>
                         <Button variant="outline-dark">Crear Recetas</Button>
                     </Link>
                     <hr />

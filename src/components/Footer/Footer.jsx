@@ -1,4 +1,4 @@
-import { Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import instagram from './../../assets/images/instagram.jpeg'
@@ -7,7 +7,7 @@ import fb from './../../assets/images/facebook.png'
 
 function Footer() {
     return (
-        <div className="footer-container">
+        <Container className="footer-container">
             <Row className="mt-auto">
                 <Col>
                     <h5>Políticas</h5>
@@ -50,7 +50,7 @@ function Footer() {
                     </ul>
                 </Col>
             </Row>
-        </div>
+        </Container>
     );
 }
 export default Footer

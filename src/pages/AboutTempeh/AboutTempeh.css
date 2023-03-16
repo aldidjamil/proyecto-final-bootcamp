@@ -3,6 +3,17 @@
 }
 
 .video {
+    float: right;
     border-width: 50px;
     border-color: black;
+    width: 30%;
+    margin: 50px;
+}
+
+.aboutTempehText {
+    float: 'left';
+    width: 60%;
+    text-align: 'justify';
+    text-align-last: 'unset';
+    justify-content: 'center'
 }

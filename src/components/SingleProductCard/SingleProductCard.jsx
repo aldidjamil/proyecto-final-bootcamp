@@ -56,7 +56,7 @@ const SingleProductDetails = () => {
     return (
         <>
 
-            <Card className="text-center">
+            <Card className="text-center my-5 mx-5 productCard card">
                 <Card.Header> <h1>{product.title}</h1></Card.Header>
                 <Card.Body>
                     <Container className="textonrecipe">

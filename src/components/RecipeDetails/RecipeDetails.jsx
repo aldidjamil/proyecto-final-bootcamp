@@ -30,7 +30,7 @@ const RecipeDetails = () => {
 
     return (
         <>
-            <Card className="text-center">
+            <Card className="text-center my-5 mx-5 productCard card">
                 <Card.Header> <h1>{recipes.title}</h1></Card.Header>
                 <Card.Body>
                     <Card.Title> <img src={recipes.imageUrl} alt="" />  </Card.Title>
@@ -48,7 +48,7 @@ const RecipeDetails = () => {
                         </p>
                     </Card.Text>
                     <Link>
-                        <Button onClick={() => navigate(0)} variant="dark">Volver atrás</Button>
+                        <Button onClick={() => navigate(-1)} variant="dark">Volver atrás</Button>
                     </Link>
                 </Card.Body>
                 <Card.Footer className="text-muted">Receta publicada por: {recipes.owner}</Card.Footer>

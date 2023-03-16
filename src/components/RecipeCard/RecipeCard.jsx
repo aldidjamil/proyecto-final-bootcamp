@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Card, Button, ButtonGroup } from "react-bootstrap"
 import { useContext } from "react"
 import { AuthContext } from "../../contexts/auth.context"
-
+import "../RecipeCard/RecipeCard.css"
 
 const RecipeCard = ({ title, imageUrl, _id, setRecipes, steps, owner }) => {
 
@@ -21,9 +21,9 @@ const RecipeCard = ({ title, imageUrl, _id, setRecipes, steps, owner }) => {
 
 
     return (
-        <Card className='mb-5 productCard card'>
+        <Card className='mb-5 recipeCard card'>
             <Card.Body>
-                <img src={imageUrl} alt={_id} />
+                <img className="recipeImage" src={imageUrl} alt={_id} />
                 <h2>{title}</h2>
                 <Link to={`/recipes/details/${_id}`} >
                     <p>Ver detalles</p>

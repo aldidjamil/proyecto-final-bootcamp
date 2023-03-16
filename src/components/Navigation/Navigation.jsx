@@ -56,7 +56,7 @@ const Navigation = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Link className='mx-2' to="AboutTempeh">
+                            <Link className='mx-2' to="aboutTempeh">
                                 <Nav.Link as="span">¿Que es el TEMPEH?</Nav.Link>
                             </Link>
                             <Link className='mx-2' to="/products">
@@ -65,7 +65,7 @@ const Navigation = () => {
                             <Link className='mx-2' to="/recipes">
                                 <Nav.Link as="span">Recetas</Nav.Link>
                             </Link>
-                            <Link className='mx-2' to="/AboutUs">
+                            <Link className='mx-2' to="/aboutUs">
                                 <Nav.Link as="span">Conocenos</Nav.Link>
                             </Link>
 

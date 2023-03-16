@@ -27,10 +27,10 @@ const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/AboutTempeh" element={<AboutTempeh />} />
-            <Route path="/AboutUs" element={<AboutUs />} />
-            <Route path="/Products" element={<Products />} />
-            <Route path="/Recipes" element={<Recipes />} />
+            <Route path="/aboutTempeh" element={<AboutTempeh />} />
+            <Route path="/aboutUs" element={<AboutUs />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/recipes" element={<Recipes />} />
             <Route path="/iniciar-sesion" element={<LoginPage />} />
             <Route path="/recipes/details/:recipe_id" element={<RecipeDetails />} />
             <Route path="/deliverypolicy" element={<DeliveryPolicy />} />
@@ -50,8 +50,8 @@ const AppRoutes = () => {
                 <Route path="/appUsers" element={<UserListPage />} />
                 <Route path="/products/edit/:product_id" element={<EditProductForm />} />
                 <Route path="/recipes/edit/:recipe_id" element={<EditRecipeForm />} />
-                <Route path="/NewRecipePage" element={<NewRecipePage />} />
-                <Route path="/NewProductPage" element={<NewProductPage />} />
+                <Route path="/newRecipePage" element={<NewRecipePage />} />
+                <Route path="/newProductPage" element={<NewProductPage />} />
             </Route>
 
             <Route path="*" element={<p>404</p>} />

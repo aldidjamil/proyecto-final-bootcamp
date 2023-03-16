@@ -6,7 +6,7 @@ const AboutUs = () => {
             <h1>SOBRE NOSOTRAS</h1>
             <br />
             <div className="container">
-                <section style={{ float: 'left', width: '60%', textAlign: 'justify', textAlignLast: 'unset', justifyContent: 'center', }}>
+                <section className="AboutUsText">
 
                     <br />
                     <p>Somos tres mujeres de Indonesia con una fuerte pasión por la comida</p>
@@ -19,7 +19,7 @@ const AboutUs = () => {
                     <br />
                     <p>Todo nuestro Tempeh está elaborado con legumbres orgánicas producidas dentro de la Unión Europea</p>
                 </section>
-                <section style={{ float: 'right', width: '30%' }}>
+                <section className="aboutUsImage">
                     <img src={aboutus} alt="aboutus" />
                 </section>
 

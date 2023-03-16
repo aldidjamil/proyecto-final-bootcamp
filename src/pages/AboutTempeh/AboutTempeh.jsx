@@ -10,9 +10,7 @@ const AboutTempeh = () => {
             <br />
 
             <div className="container">
-                <section style={{ float: 'left', width: '60%', textAlign: 'justify', textAlignLast: 'unset', justifyContent: 'center', }}>
-
-
+                <section className='aboutTempehText'>
                     <p>El <b>tempeh</b> es un alimento <b>100 % vegetal</b> con un alto contenido en proteínas. Está producido a partir de la <b>fermentación natural controlada originalmente de la soja.</b></p>
 
                     <p>Es un producto originario de <b>Indonesia del siglo XII</b>. A día de hoy, el tempeh está considerado como uno de los <b> mejores alimentos con valor nutritivo añadido.</b></p>
@@ -30,7 +28,7 @@ const AboutTempeh = () => {
                         <li> <b>Baja concentración de sodio</b></li>
                     </ul>
                 </section>
-                <section style={{ float: 'right', width: '30%', margin: '50px' }} className="video">
+                <section className="video">
                     <video className='video' autoPlay loop muted>
                         <source src={video} type='video/mp4' />
                     </video>
