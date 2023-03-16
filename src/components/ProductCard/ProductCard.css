@@ -1,6 +1,6 @@
 .productCard img {
-    height: 300px;
-    object-fit: cover;
+    height: 5000px;
+
 }
 
 .card {
@@ -9,6 +9,11 @@
 
 .productimage {
 
-    height: 50px;
+    height: 350px;
     width: 100%
+}
+
+.productCardlist {
+    height: 630px;
+    display: block;
 }

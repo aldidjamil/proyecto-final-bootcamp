@@ -1,7 +1,7 @@
 .footer-container {
     padding: 2rem;
-    background-color: #f8f9fa;
-    border-top: 1px solid #dee2e6;
+    background-color: #87B594;
+    border-top: 1px solid black;
     display: flex;
 }
 
@@ -12,7 +12,8 @@ footer {
     justify-content: space-between;
     align-items: center;
     align-content: flex-end;
-    position: relative;
+    width: 100%;
+    background-color: #87B594;
 }
 
 .footer-list {
@@ -61,4 +62,13 @@ footer {
 h5 {
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
+}
+
+.footerporfavor {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    margin-bottom: 10px;
+
+
 }

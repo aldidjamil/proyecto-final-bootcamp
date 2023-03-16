@@ -14,8 +14,9 @@ const ProductsList = ({ products }) => {
                     )
                 })
             }
-            <h3 >Hacemos tempeh no pasteurizado fresco, que tiene una vida util de 7 días en refrigeración, como congelado, que tiene 6  meses de vida util. Una vez descongelado, hay que consumirlo en 3 días.</h3>
-            <h3> <b>Debido la característica de la fermentación natural, es común encontrar algunos puntitos negros en el tempeh y decoloración</b></h3>
+            <h3 >Hacemos tempeh no pasteurizado; fresco, que tiene una vida util de 7 días en refrigeración, y congelado, que tiene 6 meses de vida util. </h3>
+            <h4>    Una vez descongelado, hay que consumirlo en 3 días. </h4>
+            <h4> <b>Debido la característica de la fermentación natural, es común encontrar algunos puntitos negros en el tempeh y decoloración.</b></h4>
         </Row>
     )
 }

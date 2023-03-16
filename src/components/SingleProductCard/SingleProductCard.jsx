@@ -57,31 +57,37 @@ const SingleProductDetails = () => {
     return (
         <>
 
-            <Card className="text-center my-5 mx-5 productCard card">
-                <Card.Header> <h1>{product.title}</h1></Card.Header>
-                <Card.Body>
-                    <Container className="textonrecipe">
-                        <Card.Title> <img className="productimagedetails" src={product.imageUrl} alt="" />  </Card.Title>
-                        <Card.Text className="mx-5">
-                            <span> Descripción del producto: {product.description} </span>
-                            <span> Precio: {product.price}</span>
-                            <Link>
-                                {/* <div> */}
-                                <span>{quantity} Productos</span>
-                                <Button onClick={incrementQuantity}>+</Button>
-                                <Button onClick={decrementQuantity}>-</Button>
-                                {/* </div> */}
-                                <Button onClick={handleAddToCart} variant="dark">añadir al Carrito</Button>
+            <Row className="singleProductCard">
+                <Col>
 
-                            </Link>
+                    <Card className="text-center my-5 mx-5 singleProductCard">
+                        <Card.Header> <h1>{product.title}</h1></Card.Header>
+                        <Card.Body>
+                            <Container className="textonrecipe">
+                                <Card.Title> <img className="productimagedetails" src={product.imageUrl} alt="" />  </Card.Title>
+                                <Card.Text className="mx-5">
+                                    <p>{product.description} </p>
+                                    <p> Precio/Unidad: {product.price} Euros</p>
+                                    <Link>
+                                        <div className="quantityButtons">
+                                            <span>{quantity} Productos</span>
+                                            <Button onClick={incrementQuantity}>+</Button>
+                                            <Button onClick={decrementQuantity}>-</Button>
+                                        </div>
 
-                        </Card.Text>
-                        <Link>
-                            <Button onClick={() => navigate(0)} variant="dark">Volver atrás</Button>
-                        </Link>
-                    </Container>
-                </Card.Body>
-            </Card>
+                                        <Button className="mt-1" onClick={handleAddToCart} variant="dark">añadir al Carrito</Button>
+
+                                    </Link>
+
+                                </Card.Text>
+                                <Link>
+                                    <Button onClick={() => navigate(0)} variant="dark">Volver atrás</Button>
+                                </Link>
+                            </Container>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
 
 
         </>

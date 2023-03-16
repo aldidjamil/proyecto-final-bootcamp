@@ -7,47 +7,45 @@ import fb from './../../assets/images/facebook.png'
 
 function Footer() {
     return (
-        <Container className="footer-container">
-            <Row className="mt-auto">
-                <Col>
-                    <h5>Políticas</h5>
-                    <ul className="footer-list">
-                        <li>
-                            <Link to="/deliverypolicy">Política de Recogida, Envios y Devoluciones</Link>
-                        </li>
-                        <li>
-                            <Link to="/cookiespolicy">Política de Cookies</Link>
-                        </li>
-                    </ul>
-                </Col>
-                <Col>
-                    <h5>Otros</h5>
-                    <ul className="footer-list">
-                        <li>
-                            <Link to="/legal">Aviso legal</Link>
-                        </li>
-                        <li>
-                            <Link to="/privacypolicy">Política de Privacidad</Link>
-                        </li>
-                    </ul>
-                </Col>
-                <Col className="logosfooter mx-2">
-                    <h5>Síguenos en</h5>
-                    <ul className="social-list">
-                        <li>
-                            <Link target="_blank">
-                                <img className="social-icon" src={instagram} alt="Instagram" />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link target="_blank">
-                                <img className="social-icon" src={fb} alt="Facebook" />
-                            </Link>
-                        </li>
-                    </ul>
-                </Col>
-            </Row>
-        </Container>
+        <Row className="mt-auto footerporfavor">
+            <Col>
+                <h5>Políticas</h5>
+                <ul className="footer-list">
+                    <li>
+                        <Link to="/deliverypolicy">Política de Recogida, Envios y Devoluciones</Link>
+                    </li>
+                    <li>
+                        <Link to="/cookiespolicy">Política de Cookies</Link>
+                    </li>
+                </ul>
+            </Col>
+            <Col>
+                <h5>Otros</h5>
+                <ul className="footer-list">
+                    <li>
+                        <Link to="/legal">Aviso legal</Link>
+                    </li>
+                    <li>
+                        <Link to="/privacypolicy">Política de Privacidad</Link>
+                    </li>
+                </ul>
+            </Col>
+            <Col className="logosfooter mx-2">
+                <h5>Síguenos en</h5>
+                <ul className="social-list">
+                    <li>
+                        <Link target="_blank">
+                            <img className="social-icon" src={instagram} alt="Instagram" />
+                        </Link>
+                    </li>
+                    <li>
+                        <Link target="_blank">
+                            <img className="social-icon" src={fb} alt="Facebook" />
+                        </Link>
+                    </li>
+                </ul>
+            </Col>
+        </Row>
     );
 }
 export default Footer

@@ -46,6 +46,9 @@ a {
 
 body {
   background-color: #F2F2F2;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 8rem;
 }
 
 h1 {

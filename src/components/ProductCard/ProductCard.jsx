@@ -20,15 +20,13 @@ const ProductCard = ({ title, description, imageUrl, format, _id, owner, price }
     }
 
     return (
-        <Card className='mb-5 productCard card'>
+        <Card className='mb-5 productCardlist'>
             <Card.Body>
-                <img className="productimage" src={imageUrl} alt={_id} />
-                <h2>{title}</h2>
-                <p>{description}</p>
-                <p>{format} Gramos</p>
-                <p>{price} Euros</p>
+                <img className="productimage mt-3" src={imageUrl} alt={_id} />
+                <h2 className="pt-3">{title}</h2>
+
                 <Link to={`/products/details/${_id}`} >
-                    <p>Ver detalles</p>
+                    <p className="pt-1">Ver detalles</p>
                 </Link>
                 {user && user.role === 'ADMIN' &&
                     <Link to={`/products/edit/${_id}`} >
