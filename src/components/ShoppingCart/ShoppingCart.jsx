@@ -4,7 +4,9 @@ import productsService from "../../services/products.services"
 import cartService from "../../services/cart.services"
 import { AuthContext, setUser, AuthProviderWrapper } from "../../contexts/auth.context"
 import authService from "../../services/auth.services"
-import { Button, Link } from "react-bootstrap"
+import { Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import './ShoppingCart.css'
 
 const ShoppingCart = () => {
 
@@ -64,15 +66,17 @@ const ShoppingCart = () => {
                         <div key={elm.product._id}>
                             <p>Producto: {elm.product.title}</p>
                             <p>Cantidad: {elm.quantity}</p>
-                            <p>Precio: {elm.product.price}</p>
-                            <p>Precio total: {cartData.totalPrice}</p>
+                            <p>Precio: {elm.product.price} Euros</p>
                         </div>
                     ))}
+                    <p> <b>Precio total de su compra:</b> {cartData.totalPrice} Euros</p>
                 </>
             }
-            <div className="mb-2 ml-2">
-                <Button bsStyle="outline-danger" onClick={() => deleteCart()}> Eliminar el Carrito </Button>
-                {/* <Button bsStyle="outline-danger" onClick={navigate('/success')}> Realizar Compra</Button> */}
+            <div className="mb-2 ml-2 buttonsCart">
+                <Button variant="outline-danger" onClick={() => deleteCart()}> Eliminar el Carrito </Button>
+                <Link to="/comprarealizada">
+                    <Button variant="outline-dark" onClick={() => fireFinalActions()}> Realizar Compra</Button>
+                </Link>
 
 
 

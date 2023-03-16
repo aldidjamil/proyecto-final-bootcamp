@@ -14,6 +14,7 @@ function CartProviderWrapper(props) {
 
     const fireFinalActions = () => {
         setShow(false)
+        setCartData({ buy: [], totalPrice: 0 })
     }
 
     const addToCart = () => cartService.createCart(cartData)
