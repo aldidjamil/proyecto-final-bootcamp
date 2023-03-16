@@ -18,9 +18,6 @@ function Footer() {
                         <li>
                             <Link to="/cookiespolicy">Política de Cookies</Link>
                         </li>
-                        <li>
-                            <Link to="/privacypolicy">Política de Privacidad</Link>
-                        </li>
                     </ul>
                 </Col>
                 <Col>
@@ -30,7 +27,7 @@ function Footer() {
                             <Link to="/legal">Aviso legal</Link>
                         </li>
                         <li>
-                            <Link to="/innovationfood">Negocio Alimenticio Innovador</Link>
+                            <Link to="/privacypolicy">Política de Privacidad</Link>
                         </li>
                     </ul>
                 </Col>
@@ -38,12 +35,12 @@ function Footer() {
                     <h5>Síguenos en</h5>
                     <ul className="social-list">
                         <li>
-                            <Link to="https://www.instagram.com/tempehjava" target="_blank">
+                            <Link target="_blank">
                                 <img className="social-icon" src={instagram} alt="Instagram" />
                             </Link>
                         </li>
                         <li>
-                            <Link to="https://www.facebook.com/tempehjava/" target="_blank">
+                            <Link target="_blank">
                                 <img className="social-icon" src={fb} alt="Facebook" />
                             </Link>
                         </li>
