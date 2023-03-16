@@ -3,7 +3,7 @@ const SuccesBuy = () => {
     return (
         <>
             <h3>Su pedido se ha realizado con éxito, muchas gracias por confiar en nosotros!</h3>
-            <p> Pronto recibirá un correo electrónico con la confirmación del pedido</p>
+            <p> Pronto recibirá un correo electrónico con la confirmación del pedido(ESTO NO ES REAL, ES UNA PRACTICA)</p>
             <p> En un periodo de 5 - 7 días laborables recibirá su pedido.</p>
         </>
 

@@ -1,8 +1,9 @@
-.recipeimagedetails {
-    height: 750px;
+.productimagedetails {
+    height: 550px;
     width: 500px;
-    float: left;
-    display: block;
+    display: flex;
+    align-items: center;
+    margin-left: 250px;
 
 }
 
@@ -19,4 +20,12 @@
     align-items: flex-start;
     list-style-position: inside;
     margin-left: 100px;
+}
+
+.singleProductCard {
+    width: 1150px;
+    height: 1050px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 }
