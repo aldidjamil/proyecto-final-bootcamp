@@ -28,9 +28,7 @@ const NewProductForm = ({ fireFinalActions }) => {
 
         productsServices
             .saveProduct(productData)
-            .then(({ data }) => {
-                fireFinalActions()
-            })
+            .then(() => fireFinalActions())
             .catch(err => setErrors(err.response.data.errorMessages))
     }
 
@@ -46,7 +44,6 @@ const NewProductForm = ({ fireFinalActions }) => {
                 setLoadingImage(false)
             })
             .catch(err => {
-                console.log(err)
                 setLoadingImage(false)
             })
     }

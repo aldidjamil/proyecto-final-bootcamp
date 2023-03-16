@@ -8,17 +8,12 @@ import FormError from "../FormError/FormError"
 
 const UserEditForm = () => {
 
-
     const [userData, setUserData] = useState({
         username: '',
         email: '',
     })
 
     const [errors, setErrors] = useState([])
-
-    useEffect(() => {
-        console.log(userData)
-    }, [userData])
 
     const navigate = useNavigate()
 
@@ -45,9 +40,7 @@ const UserEditForm = () => {
 
         authServices
             .edit(user_id, userData)
-            .then(({ data }) => {
-                navigate("/")
-            })
+            .then(() => navigate("/"))
             .catch(err => setErrors(err.response.data.errorMessages))
     }
 

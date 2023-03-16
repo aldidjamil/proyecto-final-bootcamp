@@ -1,31 +1,83 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect, useNavigate } from "react"
 import { CartContext } from "../../contexts/cart.context"
 import productsService from "../../services/products.services"
-
+import cartService from "../../services/cart.services"
+import { AuthContext, setUser, AuthProviderWrapper } from "../../contexts/auth.context"
+import authService from "../../services/auth.services"
+import { Button, Link } from "react-bootstrap"
 
 const ShoppingCart = () => {
 
-    const { cartData, addToCart, setCartData } = useContext(CartContext)
+    useEffect(() => {
+        console.log({ cartData })
+    })
 
-    console.log(cartData)
+    const { cartData, addToCart, setCartData, deleteCart, fireFinalActions } = useContext(CartContext)
+    const { user, setUser, refreshToken } = useContext(AuthContext)
+    // const navigate = useNavigate()
+
+    useEffect(() => {
+        user && loadUser(user._id)
+    }, [])
+
+    useEffect(() => {
+        user && addToCart().then(() => loadCart()).catch(err => console.log(err))
+    }, [user])
+
+    const loadUser = (user_id) => {
+        authService
+            .getOneUser(user_id)
+            .then(({ data }) => {
+                setUser(data)
+                // refreshToken()
+            })
+            .catch(err => console.log(err))
+    }
+
+    const loadCart = () => {
+        authService
+            .getOneUser(user._id)
+            .then(res => {
+                loadCartData(res.data.cart)
+            })
+            .catch(err => console.log(err))
+    }
+
+
+    const loadCartData = (cartid) => {
+        cartService
+            .getCart(cartid)
+            .then(({ data }) => {
+                setCartData(data)
+            })
+            .catch((err) => console.log(err));
+    }
 
 
     return (
+
         <>
+            <h4>SHOPPING CART</h4>
+            {cartData &&
+                <>
+                    {cartData?.buy?.map(elm => (
+                        <div key={elm.product._id}>
+                            <p>Producto: {elm.product.title}</p>
+                            <p>Cantidad: {elm.quantity}</p>
+                            <p>Precio: {elm.product.price}</p>
+                            <p>Precio total: {cartData.totalPrice}</p>
+                        </div>
+                    ))}
+                </>
+            }
+            <div className="mb-2 ml-2">
+                <Button bsStyle="outline-danger" onClick={() => deleteCart()}> Eliminar el Carrito </Button>
+                {/* <Button bsStyle="outline-danger" onClick={navigate('/success')}> Realizar Compra</Button> */}
 
 
 
-
-            <p>{cartData.buy.map(elm => <li key={elm}>  {elm.product_id}</li>)}</p>
-
-            <p>{cartData.buy.map(elm => <li key={elm}>  {elm.quantity}</li>)}</p>
-
-
-
-
-
+            </div>
         </>
-
     )
 }
 

@@ -1,10 +1,11 @@
 import RecipesList from "../../components/RecipesList/RecipesList"
 import { Link, useNavigate } from 'react-router-dom'
-
 import { Container, Button } from 'react-bootstrap'
 
 const Recipes = () => {
+
     const navigate = useNavigate()
+
     return (
 
         <Container>

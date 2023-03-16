@@ -12,9 +12,7 @@ const RecipeCard = ({ title, imageUrl, _id, setRecipes, steps, owner }) => {
     const deleteRecipe = (recipe_id) => {
         recipesService
             .deleteRecipe(recipe_id)
-            .then(() => {
-                return recipesService.getRecipes()
-            })
+            .then(() => recipesService.getRecipes())
             .then(({ data }) => setRecipes(data))
             .catch(err => console.log(err))
     }
@@ -30,29 +28,28 @@ const RecipeCard = ({ title, imageUrl, _id, setRecipes, steps, owner }) => {
                 </Link>
 
                 <ButtonGroup className="my-2">
-                    {user && user.role === 'ADMIN' &&
-                        <Link to={`/recipes/edit/${_id}`} >
-                            <Button className="mx-1" variant="outline-warning">Editar</Button>
-                        </Link>
-                    }
-                    {user && user.role === 'ADMIN' &&
-                        <Link>
-                            <Button className="mx-1" variant="outline-danger" onClick={() => deleteRecipe(_id)}>Eliminar</Button>
-                        </Link>
+                    {user?.role === 'ADMIN' &&
+                        <>
+                            <Link to={`/recipes/edit/${_id}`} >
+                                <Button className="mx-1" variant="outline-warning">Editar</Button>
+                            </Link>
+                            <Link>
+                                <Button className="mx-1" variant="outline-danger" onClick={() => deleteRecipe(_id)}>Eliminar</Button>
+                            </Link>
+                        </>
                     }
                 </ButtonGroup>
 
                 <ButtonGroup className="my-2">
-                    {user && user._id === owner &&
-                        <Link to={`/products/edit/${_id}`} >
-                            <Button className="mx-1" variant="outline-warning">Editar</Button>
-                        </Link>
-                    }
-
-                    {user && user._id === owner &&
-                        <Link>
-                            <Button className="mx-1" variant="outline-danger" onClick={() => deleteRecipe(_id)}>Eliminar</Button>
-                        </Link>
+                    {user?._id === owner &&
+                        <>
+                            <Link to={`/products/edit/${_id}`} >
+                                <Button className="mx-1" variant="outline-warning">Editar</Button>
+                            </Link>
+                            <Link>
+                                <Button className="mx-1" variant="outline-danger" onClick={() => deleteRecipe(_id)}>Eliminar</Button>
+                            </Link>
+                        </>
                     }
                 </ButtonGroup>
             </Card.Body>

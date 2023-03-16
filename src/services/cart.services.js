@@ -22,8 +22,8 @@ class CartService {
         return this.api.post('/createCart', cartData)
     }
 
-    getCart(card_id) {
-        return this.api.get(`/${card_id}`)
+    getCart(cart_id) {
+        return this.api.get(`/getCart/${cart_id}`)
     }
 
     editCart(cart_id, data) {
@@ -31,7 +31,7 @@ class CartService {
     }
 
     deleteCart(cart_id) {
-        return this.api.delete(`/delete/:${cart_id}`)
+        return this.api.delete(`/delete/${cart_id}`)
     }
 }
 

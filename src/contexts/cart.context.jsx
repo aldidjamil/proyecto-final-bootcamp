@@ -1,57 +1,41 @@
-import { createContext, useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
-import productsService from './../services/products.services'
+import { createContext, useEffect, useState, useContext } from "react"
 import cartService from "../services/cart.services"
-
 
 const CartContext = createContext()
 
 function CartProviderWrapper(props) {
 
     const [cartData, setCartData] = useState({
-
         buy: [],
         totalPrice: 0
     })
 
+    const [show, setShow] = useState(false)
 
+    const fireFinalActions = () => {
+        setShow(false)
+    }
 
-    const navigate = useNavigate()
+    const addToCart = () => cartService.createCart(cartData)
 
-    const addToCart = () => {
+    useEffect(() => {
+        setCartData(cartData)
+        console.log(cartData)
+    }, [])
 
-        console.log('----------QUIEN LLEGA', cartData)
-
+    const deleteCart = () => {
         cartService
-            .createCart(cartData)
-            .then((cart) => {
-                console.log("quiebnbnn llega", cart)
-                // navigate('/')
+            .deleteCart(cartData._id)
+            .then(() => {
+                setCartData({ buy: [], totalPrice: 0 })
+                fireFinalActions()
             })
             .catch(err => console.log(err))
-
     }
-
-    const getProducts = () => {
-
-        // cartData.buy.map(elm => { elm })
-
-
-
-        productsService
-            .getOneProduct()
-            .then((response) => console.log(response))
-            .catch(err => console.log(err))
-    }
-
-
-
-
-
 
 
     return (
-        <CartContext.Provider value={{ setCartData, addToCart, cartData }}>
+        <CartContext.Provider value={{ setCartData, addToCart, cartData, deleteCart, fireFinalActions, show, setShow }}>
             {props.children}
         </CartContext.Provider>
     )

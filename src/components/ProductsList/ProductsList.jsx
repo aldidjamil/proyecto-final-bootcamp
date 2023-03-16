@@ -1,22 +1,15 @@
 import ProductCard from "../ProductCard/ProductCard"
-import { Col, Row, Button, Form } from "react-bootstrap"
-import { useState, useEffect, useContext } from "react"
-import productsService from "../../services/products.services"
-
-
+import { Col, Row } from "react-bootstrap"
 
 const ProductsList = ({ products }) => {
-
 
     return (
         <Row className="mb-5">
             {
                 products.map(elm => {
                     return (
-
                         <Col md={{ span: 3 }} key={elm._id}>
                             <ProductCard {...elm} />
-
                         </Col>
                     )
                 })

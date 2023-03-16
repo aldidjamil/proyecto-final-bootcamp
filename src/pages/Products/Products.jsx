@@ -38,12 +38,13 @@ const Products = () => {
 
             <h1>Listado de Productos</h1>
             <Button className="px-5 mx-5 justify-content-center" onClick={() => navigate(-1)} variant="outline-dark">Volver</Button>
-            {user && user.role === 'ADMIN' &&
+            {
+                user && user.role === 'ADMIN' &&
                 <Button onClick={() => setShowModal(true)} variant="outline-dark">Crear nuevo Producto</Button>
             }
             <hr />
-            <ProductsList products={products} />
 
+            <ProductsList products={products} />
 
             <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton> <Modal.Title>Nuevo Producto</Modal.Title></Modal.Header>
