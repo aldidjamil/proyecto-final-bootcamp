@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { Container, Col, Row, Card, Button } from 'react-bootstrap'
 import { useParams } from "react-router-dom"
 import recipesService from "../../services/recipes.services"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 import './RecipeDetails.css'
-
 
 
 const RecipeDetails = () => {
@@ -17,6 +16,7 @@ const RecipeDetails = () => {
         steps: [],
         owner: ""
     })
+
     const navigate = useNavigate()
     const { recipe_id } = useParams()
 
@@ -34,31 +34,35 @@ const RecipeDetails = () => {
     }
 
     return (
-        <>
-            <Card className="text-center my-5 mx-5 productCard card">
-                <Card.Header> <h1>{recipes.title}</h1></Card.Header>
-                <Card.Body>
-                    <Card.Title> <img className="recipeDetaisImage" src={recipes.imageUrl} alt="" />  </Card.Title>
-                    <Card.Text>
-                        <p> INGREDIENTES
-                            {recipes.ingredients.map(elm =>
-                                <li key={elm} className="list"> {elm}</li>)
-                            }
-                        </p>
-                        <p>
-                            PASOS
-                            {recipes.steps.map(elm =>
-                                <li key={elm.description} className="list"> {elm.description}</li>)
-                            }
-                        </p>
-                    </Card.Text>
-                    <Link>
-                        <Button onClick={() => navigate(-1)} variant="dark">Volver atrás</Button>
-                    </Link>
-                </Card.Body>
-                <Card.Footer className="text-muted">Receta publicada por: {recipes.owner}</Card.Footer>
-            </Card>
-        </>
+        <Container>
+            <Row className="justify-content-center align-items-center">
+                <Col className="col-md-8">
+                    <Card className="text-center my-5 mx-5 productCard card">
+                        <Card.Header> <h1>{recipes.title}</h1></Card.Header>
+                        <Card.Body>
+                            <Card.Title> <img className="recipeDetaisImage" src={recipes.imageUrl} alt="" />  </Card.Title>
+                            <Card.Text>
+                                <p> INGREDIENTES
+                                    {recipes.ingredients.map(elm =>
+                                        <li key={elm} className="list"> {elm}</li>)
+                                    }
+                                </p>
+                                <p>
+                                    PASOS
+                                    {recipes.steps.map(elm =>
+                                        <li key={elm.description} className="list"> {elm.description}</li>)
+                                    }
+                                </p>
+                            </Card.Text>
+                            <Link>
+                                <Button onClick={() => navigate(-1)} variant="dark">Volver atrás</Button>
+                            </Link>
+                        </Card.Body>
+                        <Card.Footer className="text-muted">Receta publicada por: {recipes.owner}</Card.Footer>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
     )
 
 

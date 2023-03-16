@@ -11,9 +11,9 @@
 }
 
 .aboutTempehText {
-    float: 'left';
+    float: left;
     width: 60%;
-    text-align: 'justify';
-    text-align-last: 'unset';
-    justify-content: 'center'
+    text-align: justify;
+    text-align-last: unset;
+    justify-content: left
 }

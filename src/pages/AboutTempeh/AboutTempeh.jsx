@@ -5,7 +5,6 @@ const AboutTempeh = () => {
     return (
         <Container className='mb-5 '>
 
-
             <h1>¿Qué es el TEMPEH?</h1>
             <br />
 
@@ -33,7 +32,6 @@ const AboutTempeh = () => {
                         <source src={video} type='video/mp4' />
                     </video>
                 </section>
-
             </div>
         </Container>
 

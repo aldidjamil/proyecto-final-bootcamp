@@ -58,7 +58,7 @@ const Navigation = () => {
                                             <Nav.Link as="span">Usuarios</Nav.Link>
                                         </Link>
                                     }
-                                    <Button variant='primary' className='cart mx-5' onClick={handleShow}> {cartData?.buy?.reduce((acc, elm) => acc + elm.quantity, 0)} Productos <img src="https://img.freepik.com/free-icon/shopping-cart_318-633177.jpg?w=24" alt="" /></Button>
+                                    <Button variant='primary' className='cart mx-5' onClick={handleShow}> {cartData?.buy?.reduce((acc, elm) => acc + elm.quantity, 0)} Productos <img className='cartImg' src="https://img.freepik.com/free-icon/shopping-cart_318-633177.jpg?w=24" alt="" /></Button>
 
                                 </>
                                 :
@@ -74,7 +74,7 @@ const Navigation = () => {
 
                         </Nav>
 
-                        {user && <Navbar.Text>Bienvenid@, {user.username}</Navbar.Text>}
+                        {user && <Navbar.Text>{user.username}</Navbar.Text>}
 
                     </Navbar.Collapse >
                 </Container >

@@ -41,7 +41,6 @@ const ProfilePage = () => {
             .catch(err => console.log(err))
     }
 
-
     return (
         <Container border="light" className="ml-2">
 

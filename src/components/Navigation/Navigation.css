@@ -42,3 +42,17 @@
     align-content: center;
     gap: 50px;
 }
+
+.cart {
+    background-color: #87B594;
+    border: none;
+
+}
+
+.cart:hover {
+    background-color: #779c83;
+}
+
+.cartImg {
+    color: white;
+}
