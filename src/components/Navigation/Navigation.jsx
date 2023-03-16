@@ -43,9 +43,6 @@ const Navigation = () => {
                             <Link className='mx-2' to="/recipes">
                                 <Nav.Link as="span">Recetas</Nav.Link>
                             </Link>
-                            <Link className='mx-2' to="/aboutUs">
-                                <Nav.Link as="span">Conocenos</Nav.Link>
-                            </Link>
 
                         </Nav>
                         <Nav className="ml-auto">
