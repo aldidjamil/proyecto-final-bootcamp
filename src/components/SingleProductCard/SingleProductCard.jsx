@@ -60,11 +60,11 @@ const SingleProductDetails = () => {
             <Row className="singleProductCard">
                 <Col>
 
-                    <Card className="text-center my-5 mx-5 singleProductCard">
+                    <Card className="text-center my-5 mb-5 mx-5 singleProductCard">
                         <Card.Header> <h1>{product.title}</h1></Card.Header>
                         <Card.Body>
-                            <Container className="textonrecipe">
-                                <Card.Title> <img className="productimagedetails" src={product.imageUrl} alt="" />  </Card.Title>
+                            <Container className="textonrecipe ">
+                                <Card.Title className="d-flex justify-content-center"> <img className="productimagedetails" src={product.imageUrl} alt="" />  </Card.Title>
                                 <Card.Text className="mx-5">
                                     <p>{product.description} </p>
                                     <p> Precio/Unidad: {product.price} Euros</p>

@@ -14,6 +14,8 @@ footer {
     align-content: flex-end;
     width: 100%;
     background-color: #87B594;
+    margin-top: 50px;
+    padding-top: 100px
 }
 
 .footer-list {
@@ -69,6 +71,7 @@ h5 {
     position: absolute;
     width: 100%;
     margin-bottom: 10px;
+    margin-top: 200px;
 
 
 }

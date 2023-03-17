@@ -40,7 +40,8 @@ const RecipeDetails = () => {
                     <Card className="text-center my-5 mx-5 productCard card">
                         <Card.Header> <h1>{recipes.title}</h1></Card.Header>
                         <Card.Body>
-                            <Card.Title> <img className="recipeDetaisImage" src={recipes.imageUrl} alt="" />  </Card.Title>
+
+                            <img style={{ height: '500px', objectFit: 'contain', margin: '40px 0px' }} src={recipes.imageUrl} alt="" />
                             <Card.Text>
                                 <p> INGREDIENTES
                                     {recipes.ingredients.map(elm =>

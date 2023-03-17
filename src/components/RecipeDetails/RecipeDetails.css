@@ -1,8 +1,7 @@
-.recipeimagedetails {
-    height: 750px;
-    width: 100%;
+.recipeImageDetails {
+
+    width: 300px;
     float: left;
-    display: block;
 
 }
 
@@ -19,4 +18,11 @@
     align-items: flex-start;
     list-style-position: inside;
     margin-left: 100px;
+}
+
+.imageRecipe {
+
+    height: 100px;
+    object-fit: contain;
+
 }
