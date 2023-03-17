@@ -1,5 +1,5 @@
 import video from './../../assets/videos/promovideo.mp4'
-import { Container, Col } from 'react-bootstrap'
+import { Container, Col, Row } from 'react-bootstrap'
 
 const AboutTempeh = () => {
     return (
@@ -8,7 +8,7 @@ const AboutTempeh = () => {
             <h1>¿Qué es el TEMPEH?</h1>
             <br />
 
-            <div className="container">
+            <div className="container ">
                 <section className='aboutTempehText'>
                     <p>El <b>tempeh</b> es un alimento <b>100 % vegetal</b> con un alto contenido en proteínas. Está producido a partir de la <b>fermentación natural controlada originalmente de la soja.</b></p>
 
@@ -27,11 +27,16 @@ const AboutTempeh = () => {
                         <li> <b>Baja concentración de sodio</b></li>
                     </ul>
                 </section>
-                <section className="video">
-                    <video className='video' autoPlay loop muted>
-                        <source src={video} type='video/mp4' />
-                    </video>
-                </section>
+                <Row>
+                    <Col>
+                        <section className="video d-flex justify-content-center">
+                            <video className='video' autoPlay loop muted>
+                                <source src={video} type='video/mp4' />
+                            </video>
+                        </section>
+
+                    </Col>
+                </Row>
             </div>
         </Container>
 
