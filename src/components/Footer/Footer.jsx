@@ -34,12 +34,12 @@ function Footer() {
                 <h5>Síguenos en</h5>
                 <ul className="social-list">
                     <li>
-                        <Link target="_blank">
+                        <Link to="https://www.instagram.com/tempehjava" target="_blank">
                             <img className="social-icon" src={instagram} alt="Instagram" />
                         </Link>
                     </li>
                     <li>
-                        <Link target="_blank">
+                        <Link to="https://www.facebook.com/tempehjava/" target="_blank">
                             <img className="social-icon" src={fb} alt="Facebook" />
                         </Link>
                     </li>
