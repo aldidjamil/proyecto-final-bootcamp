@@ -8,6 +8,8 @@ const Recipes = () => {
 
     const navigate = useNavigate()
 
+    const { user } = useContext(AuthContext)
+
     return (
 
         <Container>
