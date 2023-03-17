@@ -43,7 +43,7 @@ const RecipeCard = ({ title, imageUrl, _id, setRecipes, steps, owner }) => {
                 <ButtonGroup className="my-2">
                     {user?._id === owner &&
                         <>
-                            <Link to={`/products/edit/${_id}`} >
+                            <Link to={`/recipes/edit/${_id}`} >
                                 <Button className="mx-1" variant="outline-warning">Editar</Button>
                             </Link>
                             <Link>
